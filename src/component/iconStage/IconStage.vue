@@ -10,18 +10,19 @@
     <ul class="icon-stage-list">
       <li v-for="(item, index) in showList" :key="index" @click="selectedIcon(item)">
         <i class="icon-item" :class="[item]" />
-        <span>{{item}}</span>
+        <span>{{ item }}</span>
       </li>
     </ul>
   </div>
 </template>
+
 <script>
-import { elementIcons } from "./constant.js";
+import { elementIcons } from './constant.js';
 export default {
-  name: "IconStage",
+  name: 'IconStage',
   data() {
     return {
-      name: "",
+      name: '',
       iconList: [...elementIcons], // totalList
       showList: [] // iconList after filter
     };
@@ -38,16 +39,17 @@ export default {
       }
     },
     selectedIcon(name) {
-      this.$emit("selected", name);
+      this.$emit('selected', name);
     },
     reset() {
-      this.name = "";
+      this.name = '';
       this.showList = this.iconList;
-    },
-  },
+    }
+  }
 };
 </script>
-<style>
+
+<style scoped>
 .icon-stage {
   height: 300px;
   overflow: hidden;
