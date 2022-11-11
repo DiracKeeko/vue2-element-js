@@ -10,7 +10,7 @@
       <template v-for="item in menuList">
         <!-- ↓ 仅一级菜单( 1.menuItem(内链跳转) 2.a标签(外链跳转) )  -->
         <el-menu-item
-          v-if="judgeIsMenuItem(item) === 'layer1' && item.hidden === 0"
+          v-if="classifyMenuItem(item) === 'layer1' && item.hidden === 0"
           :key="item.index + 'layer1'"
           :index="item.index"
         >
@@ -25,13 +25,13 @@
 
         <!-- ↓ 二级菜单(渲染submenu submenu中有两种可能 1.subMenuItem(内链跳转) 2.a标签(外链跳转) ) -->
         <el-submenu
-          v-else-if="judgeIsMenuItem(item) === 'layer2'"
+          v-else-if="classifyMenuItem(item) === 'layer2'"
           :key="item.index + 'layer2'"
           :index="item.index"
           popper-class="popup-menu"
         >
           <template slot="title">{{ item.title }}</template>
-          <template v-for="i in item.menuItem">
+          <div v-for="i in item.menuItem">
             <el-menu-item v-show="i.hidden === 0" :key="i.index" :index="i.index">
               <a
                 v-if="i.menuType && i.menuType === 'outer'"
@@ -44,7 +44,7 @@
                 <router-link :to="i.index" class="popup-menu-span__a">{{ i.title }}</router-link>
               </span>
             </el-menu-item>
-          </template>
+          </div>
         </el-submenu>
       </template>
     </el-menu>
@@ -58,7 +58,7 @@ export default {
     menuList: { type: Array, required: true }
   },
   methods: {
-    judgeIsMenuItem(item) {
+    classifyMenuItem(item) {
       // 如果没有 item.menuItem，说明是一级菜单
       // 如果一级菜单没有对应跳转链接，说明需要被隐藏
       if (!item.menuItem) {
