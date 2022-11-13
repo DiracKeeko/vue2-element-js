@@ -2,11 +2,11 @@
   <header class="header">
     <div class="header-main" :class="{ 'header-bgc': showBgc }">
       <span class="header-main-left">
-        <div v-if="logoShow" class="logo" :class="{ 'mini-logo': isMiniLogo }">
+        <!-- <div v-if="logoShow" class="logo" :class="{ 'mini-logo': isMiniLogo }">
           <router-link to="/home">
             <svg-icon :icon-class="curLogo" class="logo-item" :class="{ 'mini-logo-item': isMiniLogo }"></svg-icon>
           </router-link>
-        </div>
+        </div> -->
         <span>
           <CusMenu :menu-list="menuList"></CusMenu>
         </span>

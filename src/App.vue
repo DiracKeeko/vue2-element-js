@@ -1,15 +1,16 @@
 <template>
   <div id="app">
-    
+    <CusHeader></CusHeader>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-
+import CusHeader from "@/component/CusHeader.vue";
 export default {
-  name: 'app',
+  name: 'App',
   components: {
+    CusHeader
   }
 }
 </script>
