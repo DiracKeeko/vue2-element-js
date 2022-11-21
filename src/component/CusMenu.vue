@@ -7,7 +7,7 @@
       text-color="#FFFFFF"
       active-text-color="#FFFFFF"
     >
-      <template v-for="item in menuList">
+      <template v-for="item in menuArr">
         <!-- ↓ 仅一级菜单( 1.menuItem(内链跳转) 2.a标签(外链跳转) )  -->
         <el-menu-item
           v-if="classifyMenuItem(item) === 'layer1' && item.hidden === 0"
@@ -15,7 +15,7 @@
           :index="item.index"
         >
           <i v-if="item.menuIcon" :class="item.menuIcon"></i>
-          <span v-if="item.menuType && item.menuType === 'isOuter'" class="menuSpan">
+          <span v-if="item.menuType && item.menuType === 'outer'" class="menuSpan">
             <a :href="item.index" target="_blank" class="menu-span__a">{{ item.title }}</a>
           </span>
           <span v-else class="menuSpan">
@@ -55,7 +55,7 @@
 export default {
   name: 'CusMenu',
   props: {
-    menuList: { type: Array, required: true }
+    menuArr: { type: Array, required: true }
   },
   methods: {
     classifyMenuItem(item) {

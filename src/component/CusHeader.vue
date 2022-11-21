@@ -8,7 +8,7 @@
           </router-link>
         </div> -->
         <span>
-          <CusMenu :menu-list="menuList"></CusMenu>
+          <CusMenu :menu-arr="menuArr"></CusMenu>
         </span>
       </span>
     </div>
@@ -35,7 +35,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(["menuList"]),
+    ...mapState(["menuArr"]),
     showBgc() {
       return this.$route.path !== "/home" || !this.isInBanner;
     },
@@ -44,7 +44,7 @@ export default {
     }
   },
   watch: {
-    menuList: {
+    menuArr: {
       handler() {
         this.handleResize();
       },
@@ -69,23 +69,23 @@ export default {
     },
     handleResize() {
       const tempWidth = document.body.clientWidth;
-      if (this.menuList.length === 0) {
+      if (this.menuArr.length === 0) {
         this.logoShow = true;
         this.curLogo = STANDARD_LOGO;
-      } else if (this.menuList.length > 7 && tempWidth >= 1600) {
+      } else if (this.menuArr.length > 7 && tempWidth >= 1600) {
         this.logoShow = true;
         this.curLogo = STANDARD_LOGO;
-      } else if (this.menuList.length === 7) {
+      } else if (this.menuArr.length === 7) {
         this.logoShow = tempWidth >= 1280;
         if (tempWidth >= 1280 && tempWidth < 1440) {
           this.curLogo = MINI_LOGO;
         } else {
           this.curLogo = STANDARD_LOGO; // length=7, width>=1440
         }
-      } else if (this.menuList.length === 6 && tempWidth > 1250) {
+      } else if (this.menuArr.length === 6 && tempWidth > 1250) {
         this.logoShow = true;
         this.curLogo = STANDARD_LOGO;
-      } else if (this.menuList.length === 5) {
+      } else if (this.menuArr.length === 5) {
         this.logoShow = tempWidth >= 1150;
         if (tempWidth >= 1150 && tempWidth < 1280) {
           this.curLogo = MINI_LOGO;

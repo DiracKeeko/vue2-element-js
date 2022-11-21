@@ -4,7 +4,7 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 const state = {
-  menuList: []
+  menuArr: []
 };
 
 const getters = {};
@@ -16,8 +16,8 @@ const mutations = {
       s[k] = i[k];
     });
   },
-  setMenuList(state, list) {
-    state.menuList = list;
+  setMenuArr(state, list) {
+    state.menuArr = list;
   }
 };
 
