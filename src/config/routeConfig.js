@@ -37,12 +37,17 @@ const menuConfigArr = [
   }
 ];
 
+function loadView(componentPath) {
+  return () => import(`@/views/${componentPath}`);
+  // return () => import(`${componentPath}`); // 当前路径在src下
+}
+
 function createRouteItem(menuItem) {
   const { index, componentPath } = menuItem;
   const routeItem = {
     path: index,
     name: index.slice(1),
-    component: () => import(`@/views/${componentPath}`)
+    component: loadView(componentPath)
   };
   return routeItem;
 }
@@ -58,7 +63,7 @@ function recursionPushRouteItem(menuArr, routeArr) {
       }
       const isChildMenuExist = item.menuItem && item.menuItem.length > 0;
       if (isChildMenuExist) {
-        recursionPushRouteItem(item.menuItem, pathList);
+        recursionPushRouteItem(item.menuItem, routeArr);
       }
     }
   });
@@ -67,10 +72,9 @@ function recursionPushRouteItem(menuArr, routeArr) {
 function createRouteArrByMenuArr(menuArr) {
   const routeArr = [];
   recursionPushRouteItem(menuArr, routeArr);
-  routeArr.push({ path: "*", redirect: "/home" });
+  // routeArr.push({ path: "*", redirect: "/home" });
   return routeArr;
 }
-
 
 let menuArr = [];
 router.beforeEach((to, from, next) => {
