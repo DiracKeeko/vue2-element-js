@@ -37,17 +37,13 @@ const menuConfigArr = [
   }
 ];
 
-function loadView(componentPath) {
-  return () => import(`@/view/${componentPath}`);
-  // return () => import(`${componentPath}`); // 当前路径在src下
-}
 
 function createRouteItem(menuItem) {
   const { index, componentPath } = menuItem;
   const routeItem = {
     path: index,
     name: index.slice(1),
-    component: loadView(componentPath)
+    component: () => import(`@/view/${componentPath}`)
   };
   return routeItem;
 }

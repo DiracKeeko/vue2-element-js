@@ -15,10 +15,10 @@
           :index="item.index"
         >
           <i v-if="item.menuIcon" :class="item.menuIcon"></i>
-          <span v-if="item.menuType && item.menuType === 'outer'" class="menuSpan">
+          <span v-if="item.menuType && item.menuType === 'outer'" class="menu-span">
             <a :href="item.index" target="_blank" class="menu-span__a">{{ item.title }}</a>
           </span>
-          <span v-else class="menuSpan">
+          <span v-else class="menu-span">
             <router-link :to="item.index" class="menu-span__a">{{ item.title }}</router-link>
           </span>
         </el-menu-item>
@@ -81,6 +81,7 @@ export default {
     display: block;
     height: 60px;
     padding: 0 20px;
+    text-decoration: none;
   }
 }
 .el-sub-menu {
@@ -98,10 +99,16 @@ export default {
     .popup-menu-span__a {
       display: block;
       padding: 0 10px;
+      text-decoration: none;
     }
     &:hover {
       .popup-menu-span__a {
         color: #1b5fc5;
+      }
+    }
+    &:visited {
+      .popup-menu-span__a {
+        color: #000;
       }
     }
   }

@@ -37,7 +37,8 @@ export default {
   computed: {
     ...mapState(["menuArr"]),
     showBgc() {
-      return this.$route.path !== "/home" || !this.isInBanner;
+      // return this.$route.path !== "/home" || !this.isInBanner;
+      return true;
     },
     isMiniLogo() {
       return this.curLogo === MINI_LOGO;
