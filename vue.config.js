@@ -7,13 +7,13 @@ const config = {
   // chainWebpack: conf => {
   //   conf.resolve.alias.set("@", resolve("src"));
   // },
-  configureWebpack: {
-    resolve: {
-      alias: {
-        '@': resolve('src')
-      }
-    }
-  },
+  // configureWebpack: {
+  //   resolve: {
+  //     alias: {
+  //       '@': resolve('src')
+  //     }
+  //   }
+  // },
   lintOnSave: false,
   devServer: {
     overlay: {

@@ -38,7 +38,7 @@ const menuConfigArr = [
 ];
 
 function loadView(componentPath) {
-  return () => import(`@/views/${componentPath}`);
+  return () => import(`@/view/${componentPath}`);
   // return () => import(`${componentPath}`); // 当前路径在src下
 }
 
