@@ -1,6 +1,65 @@
 import router from "@/router";
 import store from "@/store";
 
+/* 
+// case01 fullComponentPath加上 () =>import(`${fullComponentPath}`)
+const fullComponentPathArr = [
+  "@/view/Home.vue",
+  "@/view/About.vue"
+]
+
+function createRouteItem(fullComponentPath) {
+  const routeItem = {
+    path: fullComponentPath,
+    name: fullComponentPath.slice(7, -4),
+    component: () => import(`${fullComponentPath}`)
+  };
+  return routeItem;
+}
+ */
+
+/* 
+// case02 componentPath 加上 () => import(`@/views/${componentPath}`)
+// 不报错但没有价值的写法：无入口文件，生产环境编译产物稀碎。
+const componentPathArr = [
+  "Home.vue",
+  "About.vue"
+]
+function createRouteItem(componentPath) {
+  const routeItem = {
+    path: componentPath,
+    name: componentPath.slice(0, -4),
+    component: () => import(`@/views/${componentPath}`)
+  };
+  return routeItem;
+} 
+*/
+
+/* 
+// case03 朴实无华但可用的写法 path、name、component绑定 (直接写routeItem)
+const routeArr = [
+  {
+    path: "/home",
+    name: "home",
+    component: () => import("@/view/Home.vue")
+  },
+  {
+    path: "/about",
+    name: "about",
+    component: () => import("@/view/About.vue")
+  }
+]
+*/
+
+/* 
+// case04 些许麻烦，但配置性强的写法
+const nameToComponentPathMap = {
+  home: () => import("@/view/Home.vue"),
+  about: () => import("@/view/About.vue")
+}
+ */
+
+
 const menuConfigArr = [
   {
     "index": "/home",
