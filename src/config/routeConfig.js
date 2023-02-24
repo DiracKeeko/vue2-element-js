@@ -93,6 +93,23 @@ const menuConfigArr = [
         "componentPath": "TestJsonFormat.vue"
       }
     ]
+  },
+  {
+    "index": "3",
+    "title": "showCase",
+    "hidden": 0,
+    "menuType": "inner",
+    "menuId": 3,
+    "menuItem": [
+      {
+        "index": "/showCase01",
+        "title": "showCase01",
+        "hidden": 0,
+        "menuType": "inner",
+        "menuId": 1,
+        "componentPath": "showCase/ComponentCase.vue"
+      }
+    ]
   }
 ];
 

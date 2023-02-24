@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <CusHeader></CusHeader>
-    <router-view></router-view>
+    <div class="app-container">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
@@ -15,7 +17,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -23,5 +25,11 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  .app-container {
+    background-color: #f5f5f5;
+    min-height: calc(100vh - 60px);
+    padding-top: 60px;
+    overflow-x: hidden;
+  }
 }
 </style>
