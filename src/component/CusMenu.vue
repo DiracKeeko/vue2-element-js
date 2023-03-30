@@ -100,15 +100,16 @@ export default {
       display: block;
       padding: 0 10px;
       text-decoration: none;
+      color: var(--dark-color);
     }
     &:hover {
       .popup-menu-span__a {
-        color: #1b5fc5;
+        color: var(--primary-color);
       }
     }
     &:visited {
       .popup-menu-span__a {
-        color: #000;
+        color: var(--dark-grey-color);
       }
     }
   }

@@ -6,6 +6,8 @@ import './plugin/element.js';
 
 import "./config/routeConfig";
 
+import "./scss/theme.scss";
+
 Vue.config.productionTip = false;
 
 new Vue({
