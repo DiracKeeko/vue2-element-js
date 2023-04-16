@@ -108,9 +108,34 @@ const menuConfigArr = [
         "menuType": "inner",
         "menuId": 1,
         "componentPath": "showCase/ComponentCase.vue"
+      },
+      {
+        "index": "/showCusMultiMenu",
+        "title": "showCusMultiMenu",
+        "hidden": 0,
+        "menuType": "inner",
+        "menuId": 1,
+        "componentPath": "showCase/showCusMultiMenu/ShowCusMultiMenu.vue"
       }
     ]
-  }
+  },
+  // {
+  //   "index": "4",
+  //   "title": "showCase",
+  //   "hidden": 0,
+  //   "menuType": "inner",
+  //   "menuId": 3,
+  //   "menuItem": [
+  //     {
+  //       "index": "/showCusTip",
+  //       "title": "showCusTip",
+  //       "hidden": 0,
+  //       "menuType": "inner",
+  //       "menuId": 1,
+  //       "componentPath": "showCase/showCusTip/ShowCusTip.vue"
+  //     }
+  //   ]
+  // }
 ];
 
 
