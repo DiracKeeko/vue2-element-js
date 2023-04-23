@@ -37,6 +37,7 @@
 
 <script>
 export default {
+  name: "ShowCusMultiMenu02",
   methods: {
     handleMenuEnter() {
       this.$refs.submenu2.forEach((submenu) => {

@@ -124,6 +124,14 @@ const menuConfigArr = [
         "menuType": "inner",
         "menuId": 1,
         "componentPath": "showCase/showCusMultiMenu/ShowCusMultiMenu02.vue"
+      },
+      {
+        "index": "/showSkeletonRender",
+        "title": "showSkeletonRender",
+        "hidden": 0,
+        "menuType": "inner",
+        "menuId": 1,
+        "componentPath": "showCase/showSkeletonRender/ShowSkeletonRender.vue"
       }
     ]
   },

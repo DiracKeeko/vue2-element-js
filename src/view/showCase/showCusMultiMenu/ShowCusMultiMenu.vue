@@ -22,6 +22,7 @@
 
 <script>
 export default {
+  name: "ShowCusMultiMenu",
   data() {
     return {
       activeIndex: '', // 当前选中的菜单项
