@@ -132,7 +132,15 @@ const menuConfigArr = [
         "menuType": "inner",
         "menuId": 1,
         "componentPath": "showCase/showSkeletonRender/ShowSkeletonRender.vue"
-      }
+      },
+      {
+        "index": "/showVxeTable",
+        "title": "showVxeTable",
+        "hidden": 0,
+        "menuType": "inner",
+        "menuId": 1,
+        "componentPath": "showCase/showVxeTable/ShowVxeTable.vue"
+      },
     ]
   },
   // {
