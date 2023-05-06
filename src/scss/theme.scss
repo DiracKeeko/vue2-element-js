@@ -49,6 +49,56 @@ body {
     }
   }
 
+  // font sizes
+  @each $sizeKey, $sizeVal in $font-sizes {
+    .fs-#{$sizeKey} {
+      font-size: $sizeVal * $base-font-size;
+    }
+  }
+
+  // font weights
+  @each $key, $val in $font-weights {
+    .fw-#{$key} {
+      font-weight: $val;
+    }
+  }
+
+  .d-flex {
+    display: flex;
+  }
+
+  .flex-column {
+    flex-direction: column;
+  }
+
+  .flex-wrap {
+    flex-wrap: wrap;
+  }
+
+  @each $key, $val in $flex-jc {
+    .jc-#{$key} {
+      justify-content: $val;
+    }
+  }
+
+  @each $key, $val in $flex-ai {
+    .ai-#{$key} {
+      align-items: $val;
+    }
+  }
+
+  .text-left {
+    text-align: left;
+  }
+
+  .text-right {
+    text-align: right;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
   // @extend
   .base-border {
     border: 1px solid var(--dark-color);
