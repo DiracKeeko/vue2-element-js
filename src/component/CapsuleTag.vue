@@ -37,7 +37,7 @@ export default {
       }
       switch (type) {
         case "info":
-          return "#dedede";
+          return "#919cac";
         case "success":
           return "#00bf30";
         case "warning":
