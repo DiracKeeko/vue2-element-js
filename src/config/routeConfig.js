@@ -143,6 +143,23 @@ const menuConfigArr = [
       },
     ]
   },
+  {
+    "index": "4",
+    "title": "组件展示",
+    "hidden": 0,
+    "menuType": "inner",
+    "menuId": 3,
+    "menuItem": [
+      {
+        "index": "/actionComponent",
+        "title": "交互组件",
+        "hidden": 0,
+        "menuType": "inner",
+        "menuId": 1,
+        "componentPath": "showComponent/ActionComponent.vue"
+      },
+    ]
+  },
   // {
   //   "index": "4",
   //   "title": "showCase",
