@@ -1,38 +1,34 @@
 <template>
-  <div class="two-date-picker">
-    <el-form ref="two-date-picker" label-width="62px" inline>
-      <el-form-item :label="label.start">
-        <el-date-picker
-          v-model="startDateTimestamp"
-          class="customeDatePicker"
-          :picker-options="startDatePickerOpts"
-          type="date"
-          format="yyyy-MM-dd"
-          value-format="timestamp"
-          size="small"
-          placeholder="开始日期"
-          v-bind="$attrs"
-          @change="handleChange"
-        />
-      </el-form-item>
+  <div class="el-input">
+    <div class="two-date-picker">
+      <el-date-picker
+        v-model="startDateTimestamp"
+        class="customeDatePicker"
+        :picker-options="startDatePickerOpts"
+        type="date"
+        format="yyyy-MM-dd"
+        value-format="timestamp"
+        size="small"
+        :placeholder="startPlaceholder"
+        v-bind="$attrs"
+        @change="handleChange"
+      />
       <div v-if="label.end === '' && label.start === ''" class="dateConnect">
         {{ rangeSeparator }}
       </div>
-      <el-form-item :label="label.end">
-        <el-date-picker
-          v-model="endDateTimestamp"
-          class="customeDatePicker"
-          :picker-options="endDatePickerOpts"
-          type="date"
-          format="yyyy-MM-dd"
-          value-format="timestamp"
-          size="small"
-          placeholder="结束日期"
-          v-bind="$attrs"
-          @change="handleChange"
-        />
-      </el-form-item>
-    </el-form>
+      <el-date-picker
+        v-model="endDateTimestamp"
+        class="customeDatePicker"
+        :picker-options="endDatePickerOpts"
+        type="date"
+        format="yyyy-MM-dd"
+        value-format="timestamp"
+        size="small"
+        :placeholder="endPlaceholder"
+        v-bind="$attrs"
+        @change="handleChange"
+      />
+    </div>
   </div>
 </template>
 <script>
@@ -63,12 +59,21 @@ export default {
       default() {
         return { start: "", end: "" };
       }
+    },
+    startPlaceholder: {
+      type: String,
+      default: "开始日期"
+    },
+    endPlaceholder: {
+      type: String,
+      default: "结束日期"
     }
   },
   data() {
+    const [sDate, eDate] = this.dateRange;
     return {
-      startDateTimestamp: this.dateToTimestamp(this.dateRange[0]),
-      endDateTimestamp: this.dateToTimestamp(this.dateRange[1])
+      startDateTimestamp: this.dateToTimestamp(sDate),
+      endDateTimestamp: this.dateToTimestamp(eDate)
     };
   },
   computed: {
@@ -129,6 +134,8 @@ export default {
       const startDateStr = formatToDateStr(startDateTimestamp);
       const endDateStr = formatToDateStr(endDateTimestamp);
       this.$emit("change", [startDateStr, endDateStr]);
+      this.$emit("update:startDate", startDateStr); // 可以使用 :startDate.sync 单向接收数据
+      this.$emit("update:endDate", endDateStr); // 可以使用 :endDate.sync 单向接收数据
     },
     formatToDateStr(val) {
       if (!val) {
@@ -152,18 +159,25 @@ export default {
   display: flex;
   flex-direction: row;
   align-items: center;
+  width: 100%;
   min-width: fit-content;
-  margin-right: 30px;
+
+  .customeDatePicker {
+    width: 46%;
+  }
+  .dateConnect {
+    box-sizing: border-box;
+    width: 8%;
+    font-size: 14px;
+    color: #333333;
+    text-align: center;
+  }
 
   .theme-light .el-form-item__content {
     line-height: 40px;
   }
 
-  ::v-deep .el-form {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    height: 32px;
+  ::v-deep {
     .el-form-item {
       margin: 0;
       .el-form-item__label {
@@ -171,25 +185,15 @@ export default {
       }
     }
     .el-date-editor {
-      width: 113px;
       .el-input__prefix {
         display: none;
       }
       .el-input__inner {
-        width: 113px;
         height: 32px;
         padding: 0 5px 0 13px;
         font-size: 14px;
       }
     }
   }
-}
-.two-date-picker__lable {
-  margin: 0 5px;
-}
-.dateConnect {
-  margin: 0 6px 0 5px;
-  font-size: 14px;
-  color: $text-dark;
 }
 </style>
