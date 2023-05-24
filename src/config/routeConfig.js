@@ -141,6 +141,14 @@ const menuConfigArr = [
         "menuId": 1,
         "componentPath": "showCase/showVxeTable/ShowVxeTable.vue"
       },
+      {
+        "index": "/showGlobalMixin",
+        "title": "showGlobalMixin",
+        "hidden": 0,
+        "menuType": "inner",
+        "menuId": 1,
+        "componentPath": "showCase/showGlobalMixin/ShowGlobalMixin"
+      },
     ]
   },
   {
