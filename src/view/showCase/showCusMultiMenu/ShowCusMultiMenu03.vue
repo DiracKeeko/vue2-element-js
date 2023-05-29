@@ -2,10 +2,8 @@
   <el-menu
     class="nav-menu"
     mode="horizontal"
-    @mouseenter="handleMenuEnter"
-    @mouseleave="handleMenuLeave"
   >
-    <el-menu-item index="1">菜单1</el-menu-item>
+    <el-menu-item index="1">菜单1-03</el-menu-item>
     <el-submenu index="2" ref="submenu2">
       <template slot="title">
         菜单2
@@ -37,25 +35,9 @@
 
 <script>
 export default {
-  name: "ShowCusMultiMenu02",
+  name: "ShowCusMultiMenu03",
   methods: {
-    handleMenuEnter() {
-      this.$refs.submenu2.forEach((submenu) => {
-        submenu.showPopper();
-        submenu.$refs.submenu.forEach((submenu) => {
-          submenu.showPopper();
-        });
-      });
-    },
-    handleMenuLeave() {
-      this.$refs.submenu2.forEach((submenu) => {
-        submenu.hidePopper();
-        submenu.$refs.submenu.forEach((submenu) => {
-          submenu.hidePopper();
-        });
-      });
-    },
-  },
+  }
 };
 </script>
 

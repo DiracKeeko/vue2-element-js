@@ -123,7 +123,7 @@ const menuConfigArr = [
         "hidden": 0,
         "menuType": "inner",
         "menuId": 1,
-        "componentPath": "showCase/showCusMultiMenu/ShowCusMultiMenu02.vue"
+        "componentPath": "showCase/showCusMultiMenu/ShowCusMultiMenu03.vue"
       },
       {
         "index": "/showSkeletonRender",
