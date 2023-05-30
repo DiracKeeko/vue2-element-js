@@ -1,12 +1,27 @@
+// menuItem -> menuArr
+/* 
+
+  1、后台管理系统  强制所有的一级菜单为"显示"状态，不允许有隐藏的一级菜单
+      备注：灰度菜单必须放到某个一级菜单下方，不允许使用一级菜单做灰度。
+  
+  2、menuArr.length <= 6 (一个多级菜单展开后 列最多6列)
+  
+  3、title 
+      holder类型 title.length <= 6 (holder类型的菜单最多6个字符)
+      inner类型 title.length <= 8 (inner类型的菜单最多8个字符) 
+      outer类型 title.length <= 8 (outer类型的菜单最多8个字符)
+      
+*/
 export const menuRes = [
   {
     "index": "/home",
     "title": "首页",
-    "hidden": 0,
-    "menuType": "inner",
+    "hidden": 0, // 0: 显示, 1: 隐藏
+    "menuType": "inner", // inner: 内部路由, outer: 外部链接, holder: 占位符
     "menuId": 94,
     "metaProperties": "",
-    "menuItem": [
+    // ↓ 原menuItem
+    "menuArr": [
       [
         {
           "index": "/watch",
@@ -25,7 +40,7 @@ export const menuRes = [
     "hidden": 0,
     "menuType": "inner",
     "menuId": 2,
-    "menuItem": [
+    "menuArr": [
       [
         {
           "index": "/publicMarket",
@@ -138,7 +153,7 @@ export const menuRes = [
     "hidden": 0,
     "menuType": "inner",
     "menuId": 3,
-    "menuItem": [
+    "menuArr": [
       [
         {
           "index": "/wmProductFilter",
@@ -193,7 +208,7 @@ export const menuRes = [
     "menuId": 89,
     "componentPath": "",
     "metaProperties": "",
-    "menuItem": [
+    "menuArr": [
       [
         {
           "index": "/insuranceFilter",
@@ -222,7 +237,7 @@ export const menuRes = [
     "hidden": 0,
     "menuType": "inner",
     "menuId": 4,
-    "menuItem": [
+    "menuArr": [
       [
         {
           "index": "/fundPool",
@@ -275,7 +290,7 @@ export const menuRes = [
     "hidden": 0,
     "menuType": "inner",
     "menuId": 5,
-    "menuItem": [
+    "menuArr": [
       [
         {
           "index": "/portfolioManage",
@@ -461,7 +476,7 @@ export const menuRes = [
     "menuType": "inner",
     "menuId": 7,
     "componentPath": "marketCenter/stockMarket/StockMarket.vue",
-    "menuItem": [
+    "menuArr": [
       [
         {
           "index": "/indexDetail",
@@ -516,7 +531,7 @@ export const menuRes = [
     "hidden": 0,
     "menuType": "inner",
     "menuId": 8,
-    "menuItem": [
+    "menuArr": [
       [
         {
           "index": "/strategyCenterArticle",
@@ -636,7 +651,7 @@ export const menuRes = [
     "menuType": "inner",
     "menuId": 64,
     "componentPath": "community/home/Home.vue",
-    "menuItem": [
+    "menuArr": [
       [
         {
           "index": "/communitySearchHome",
@@ -687,7 +702,7 @@ export const menuRes = [
     "hidden": 0,
     "menuType": "inner",
     "menuId": 120,
-    "menuItem": [
+    "menuArr": [
       [
         {
           "index": "/myProductManagement",
