@@ -1,13 +1,8 @@
 <template>
-  <el-menu
-    class="nav-menu"
-    mode="horizontal"
-  >
+  <el-menu class="nav-menu" mode="horizontal">
     <el-menu-item index="1">菜单1-03</el-menu-item>
     <el-submenu index="2">
-      <template slot="title">
-        菜单2
-      </template>
+      <template slot="title"> 菜单2 </template>
       <div class="submenu-row">
         <div class="submenu-col">
           <div class="submenu-item menu-holder">子菜单1</div>
@@ -30,6 +25,23 @@
       </div>
     </el-submenu>
     <el-menu-item index="3">菜单3</el-menu-item>
+
+    <template v-for="item in menuList">
+      <el-menu-item
+        v-if="judgeIsMenuItem(item) === '一级' && item.hidden === 0"
+        :index="item.index"
+        :key="item.index + 'lv1'"
+      >
+        <a
+          v-if="item.menuType && item.menuType === 'outer'"
+          :href="item.index"
+          target="_blank"
+          class="menu-link"
+          >{{ item.title }}</a
+        >
+        <router-link v-else :to="item.index" class="menu-link">{{ item.title }}</router-link>
+      </el-menu-item>
+    </template>
   </el-menu>
 </template>
 
@@ -40,14 +52,14 @@ export default {
   name: "ShowCusMultiMenu03",
   data() {
     return {
-      menuRes,
-    }
+      menuList: menuRes
+    };
   },
   methods: {
     judgeIsMenuItem(item) {
       // 如果没有 item.menuItem，说明是一级菜单
       if (!item.menuItem) {
-        // 如果一级菜单没有对应跳转链接，说明需要被隐藏 
+        // 如果一级菜单没有对应跳转链接，说明需要被隐藏
         // (index是纯数字字符串 则隐藏)
         if (/^\d+$/.test(item.index)) {
           return "隐藏";
@@ -58,23 +70,41 @@ export default {
       // if (item)
       return "二级";
     }
-  
   }
 };
 </script>
 
 <style lang="scss" scoped>
-// 一级菜单
-.el-menu-item {
-  padding: 0;
-  background-color: transparent !important;
-
-  .menuSpanA {
-    display: block;
-    height: 60px;
-    padding: 0 20px;
+// .el-menu 是导航栏展示的窗体 如"首页", "基金", "股票" 所在窗体
+/* 
+  <ul role="menubar" class="nav-menu el-menu--horizontal el-menu">
+    <li class="el-menu-item" style="border-bottom-color: transparent;">一级菜单的基金</li>
+    <li class="el-menu-item" style="border-bottom-color: transparent;">一级菜单的股票</li>
+  </ul>
+*/
+.el-menu {
+  // 一级菜单
+  .el-menu-item {
+    padding: 0;
+    border: 0;
+    background-color: transparent !important;
+    .menu-link {
+      display: block;
+      height: 60px;
+      padding: 0 20px;
+      text-decoration: none; // 去除a标签下划线
+    }
   }
 }
+
+// .el-menu 这个类也会存在于"二级菜单弹窗容器"(在本组件容器中是.submenu-row的父元素)
+// 在这里.el-menu父级还有一个div (.el-menu--horizontal) 这个类是用来控制二级菜单弹窗容器的位置以及是否显示(display: none)的;
+/* 
+<div class="el-menu--horizontal" style="position: absolute; top: 180px; left: 64px; z-index: 2006; display: none;" x-placement="bottom-start">
+  <ul role="menu" class="el-menu el-menu--popup el-menu--popup-bottom-start">
+  </ul>
+</div>
+*/
 .el-submenu {
   background-color: transparent !important;
 }
@@ -96,8 +126,7 @@ export default {
     }
   }
 }
-</style>
-<style lang="scss">
+// ↓ 二级菜单css (展开的菜单窗体)
 .el-menu--popup {
   min-width: auto;
   padding: 0;
@@ -115,4 +144,3 @@ export default {
   }
 }
 </style>
-
