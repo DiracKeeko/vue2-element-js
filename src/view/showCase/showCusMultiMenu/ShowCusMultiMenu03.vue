@@ -46,8 +46,21 @@
 </template>
 
 <script>
-import { menuRes } from "./mockData";
+const isMenuColItemAllHidden = (menuColArr) => {
+  return !menuColArr || menuColArr.length === 0 || menuColArr.every((el) => el.hidden === 1);
+};
+const isMenuPopupHidden = (menuArr) => {
+  /* 
+    1、没有menuArr这个key
+    2、item.menuArr存在，但是menuArr为空数组
+    3、menuArr中 所有的menuColArr中 的各个menu都为隐藏状态
 
+    则隐藏
+  */
+  return !menuArr || menuArr.length === 0 || menuArr.every((el) => isMenuColItemAllHidden(el));
+};
+
+import { menuRes } from "./mockData";
 export default {
   name: "ShowCusMultiMenu03",
   data() {
@@ -57,17 +70,13 @@ export default {
   },
   methods: {
     judgeIsMenuItem(item) {
-      // 如果没有 item.menuItem，说明是一级菜单
-      if (!item.menuItem) {
-        // 如果一级菜单没有对应跳转链接，说明需要被隐藏
-        // (index是纯数字字符串 则隐藏)
-        if (/^\d+$/.test(item.index)) {
-          return "隐藏";
-        }
+      // 如果一级菜单没有对应跳转链接，说明需要被隐藏 (index是纯数字字符串 则隐藏)
+      if (/^\d+$/.test(item.index)) {
+        return "隐藏";
+      }
+      if (isMenuPopupHidden(item.menuArr)) {
         return "一级";
       }
-      // item.menuItem存在，但是所有项目都为hidden，则也判定为一级菜单
-      // if (item)
       return "二级";
     }
   }

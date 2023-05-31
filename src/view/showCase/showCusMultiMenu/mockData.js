@@ -10,7 +10,31 @@
       holder类型 title.length <= 6 (holder类型的菜单最多6个字符)
       inner类型 title.length <= 8 (inner类型的菜单最多8个字符) 
       outer类型 title.length <= 8 (outer类型的菜单最多8个字符)
-      
+
+*/
+/* 
+  const menuArr = [
+    menuCol1Arr, menuCol2Arr, menuCol3Arr
+  ]
+
+  menuCol1Arr = [
+    {
+      "index": "/home",
+      "title": "首页",
+      "hidden": 1,
+      "menuType": "inner",
+      "menuId": 41,
+      "componentPath": "home/Home.vue"
+    },
+    {
+      "index": "/watch",
+      "title": "我的自选",
+      "hidden": 1,
+      "menuType": "inner",
+      "menuId": 41,
+      "componentPath": "watch/Watch.vue"
+    }
+  ]
 */
 export const menuRes = [
   {
