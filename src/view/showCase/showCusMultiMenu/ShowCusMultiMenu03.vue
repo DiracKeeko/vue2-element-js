@@ -1,36 +1,11 @@
 <template>
   <el-menu class="nav-menu" mode="horizontal">
-    <el-menu-item index="1">菜单1-03</el-menu-item>
-    <el-submenu index="2">
-      <template slot="title"> 菜单2 </template>
-      <div class="submenu-row">
-        <div class="submenu-col">
-          <div class="submenu-item menu-holder">子菜单1</div>
-          <el-menu-item class="submenu-item" index="2-1-1">子菜单1-1</el-menu-item>
-          <el-menu-item class="submenu-item" index="2-1-2">子菜单1-2</el-menu-item>
-          <el-menu-item class="submenu-item" index="2-1-3">子菜单1-3</el-menu-item>
-        </div>
-        <div class="submenu-col">
-          <div class="submenu-item menu-holder">子菜单2</div>
-          <el-menu-item class="submenu-item" index="2-2-1">子菜单2-1</el-menu-item>
-          <el-menu-item class="submenu-item" index="2-2-2">子菜单2-2</el-menu-item>
-          <el-menu-item class="submenu-item" index="2-2-3">子菜单2-3</el-menu-item>
-        </div>
-        <div class="submenu-col">
-          <div class="submenu-item menu-holder">子菜单3</div>
-          <el-menu-item class="submenu-item" index="2-3-1">子菜单3-1</el-menu-item>
-          <el-menu-item class="submenu-item" index="2-3-2">子菜单3-2</el-menu-item>
-          <el-menu-item class="submenu-item" index="2-3-3">子菜单3-3</el-menu-item>
-        </div>
-      </div>
-    </el-submenu>
-    <el-menu-item index="3">菜单3</el-menu-item>
-
     <template v-for="item in menuList">
+      <!-- ↓ 仅一级菜单( 1.menuItem(内链跳转) 2.a标签(外链跳转) )  -->
       <el-menu-item
         v-if="judgeIsMenuItem(item) === '一级' && item.hidden === 0"
-        :index="item.index"
         :key="item.index + 'lv1'"
+        :index="item.index"
       >
         <a
           v-if="item.menuType && item.menuType === 'outer'"
@@ -41,6 +16,47 @@
         >
         <router-link v-else :to="item.index" class="menu-link">{{ item.title }}</router-link>
       </el-menu-item>
+
+      <!-- ↓ 二级菜单(渲染submenu submenu中有两种可能 1.subMenuItem(内链跳转) 2.a标签(外链跳转) ) -->
+      <el-submenu
+        v-else-if="judgeIsMenuItem(item) === '二级'"
+        :key="item.index + 'lv2'"
+        :index="item.index"
+      >
+        <template slot="title">{{ item.title }}</template>
+        <div class="submenu-row">
+          <div
+            v-for="(el, colIndex) in excludeEmptyArr(item.menuArr)"
+            :key="colIndex"
+            v-show="isShowMenuCol(el)"
+            class="submenu-col"
+          >
+            <div v-for="i in el" :key="i.index">
+              <el-menu-item v-show="i.hidden === 0">
+                <a
+                  v-if="i.menuType && i.menuType === 'outer'"
+                  :href="i.index"
+                  target="_blank"
+                  class="submenu-item submenu-link"
+                  >{{ i.title }}</a
+                >
+                <router-link
+                  v-else-if="i.menuType && i.menuType === 'inner'"
+                  :to="i.index"
+                  class="submenu-item submenu-link"
+                  >{{ i.title }}</router-link
+                >
+                <div
+                  v-else-if="i.menuType && i.menuType === 'holder'"
+                  class="submenu-item submenu-holder"
+                >
+                  {{ i.title }}
+                </div>
+              </el-menu-item>
+            </div>
+          </div>
+        </div>
+      </el-submenu>
     </template>
   </el-menu>
 </template>
@@ -71,13 +87,21 @@ export default {
   methods: {
     judgeIsMenuItem(item) {
       // 如果一级菜单没有对应跳转链接，说明需要被隐藏 (index是纯数字字符串 则隐藏)
-      if (/^\d+$/.test(item.index)) {
-        return "隐藏";
-      }
+      // if (/^\d+$/.test(item.index)) {
+      //   return "隐藏";
+      // }
       if (isMenuPopupHidden(item.menuArr)) {
         return "一级";
       }
       return "二级";
+    },
+    excludeEmptyArr(arr) {
+      const res = arr.filter((el) => el.length !== 0);
+      return res;
+    },
+    isShowMenuCol(menuColArr) {
+      console.log("menuArr", menuColArr);
+      return menuColArr.some(el => el.hidden === 0);
     }
   }
 };
@@ -92,18 +116,27 @@ export default {
   </ul>
 */
 .el-menu {
-  // 一级菜单
+  // ↓ 一级菜单(的标题)
   .el-menu-item {
     padding: 0;
     border: 0;
     background-color: transparent !important;
-    .menu-link {
-      display: block;
-      height: 60px;
-      padding: 0 20px;
-      text-decoration: none; // 去除a标签下划线
-    }
   }
+  // ↓ 二级菜单(的标题)
+  .el-submenu {
+    padding: 0;
+    border: 0;
+    background-color: transparent !important;
+  }
+  
+  // ↓ 给.el-menu-item下的a标签和router-link
+  .menu-link {
+    display: block;
+    height: 60px;
+    padding: 0 20px;
+    text-decoration: none;
+  }
+  
 }
 
 // .el-menu 这个类也会存在于"二级菜单弹窗容器"(在本组件容器中是.submenu-row的父元素)
@@ -114,41 +147,39 @@ export default {
   </ul>
 </div>
 */
-.el-submenu {
-  background-color: transparent !important;
-}
+
+// <el-submenu popper-class="outer-popup-controller"></el-submenu>  <el-submenu>标签上的popper-class="outer-popup-controller" 这个class会渲染到el-menu--horizontal所在的div上
+/* 
+<div class="el-menu--horizontal outer-popup-controller" style="position: absolute; top: 180px; left: 64px; z-index: 2006; display: none;" x-placement="bottom-start"></div>
+*/
+
+// ↓ 二级菜单css (展开的菜单窗体)
 .submenu-row {
   display: flex;
+  padding: 5px;
   .submenu-col {
-    padding: 0 10px;
-    color: var(--dark-color);
+    width: 120px;
+    padding: 0 15px;
+    .el-menu-item {
+      width: 100%;
+    }
     .submenu-item {
-      box-sizing: border-box;
-      padding: 0;
       height: 36px !important;
       line-height: 36px !important;
+      color: var(--dark-color);
     }
-    .menu-holder {
+    .submenu-link {
+      height: 36px;
+      font-size: 14px;
+      text-decoration: none;
+      &:hover {
+        color: #1b5fc5;
+      }
+    }
+    .submenu-holder {
       font: bold 18px/36px "Microsoft YaHei";
       cursor: default;
       border-bottom: 2px solid var(--grey-color);
-    }
-  }
-}
-// ↓ 二级菜单css (展开的菜单窗体)
-.el-menu--popup {
-  min-width: auto;
-  padding: 0;
-  .el-menu-item {
-    padding: 0;
-    .popupMenuSpanA {
-      display: block;
-      padding: 0 10px;
-    }
-    &:hover {
-      .popupMenuSpanA {
-        color: #1b5fc5;
-      }
     }
   }
 }

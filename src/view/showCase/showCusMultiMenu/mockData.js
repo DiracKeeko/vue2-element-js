@@ -79,6 +79,14 @@ export const menuRes = [
       ],
       [
         {
+          "index": "1",
+          "title": "基金holder",
+          "hidden": 0,
+          "menuType": "holder",
+          "menuId": 10,
+          "componentPath": ""
+        },
+        {
           "index": "/fundFilter",
           "title": "基金筛选",
           "hidden": 0,
@@ -122,25 +130,6 @@ export const menuRes = [
           "menuId": 14,
           "componentPath": "fundResearch/fundCompare/FundCompare.vue",
           "metaProperties": ""
-        }
-      ],
-      [
-        {
-          "index": "/dueDiligence",
-          "title": "尽调报告",
-          "hidden": 0,
-          "menuType": "inner",
-          "menuId": 102,
-          "componentPath": "fundResearch/dueDiligence/DueDiligence.vue",
-          "metaProperties": ""
-        },
-        {
-          "index": "/fundLabel",
-          "title": "标签选基",
-          "hidden": 0,
-          "menuType": "inner",
-          "menuId": 16,
-          "componentPath": "fundResearch/fundLabel/FundLabel.vue"
         },
         {
           "index": "/fundCalc",
@@ -167,6 +156,39 @@ export const menuRes = [
           "menuId": 101,
           "componentPath": "fundResearch/fundCompany/FundCompanyOverview.vue",
           "metaProperties": ""
+        }
+      ],
+      [
+        {
+          "index": "12",
+          "title": "尽调",
+          "hidden": 0,
+          "menuType": "holder",
+          "menuId": 102
+        },
+        {
+          "index": "/dueDiligence",
+          "title": "尽调报告",
+          "hidden": 0,
+          "menuType": "inner",
+          "menuId": 102,
+          "componentPath": "fundResearch/dueDiligence/DueDiligence.vue",
+          "metaProperties": ""
+        },
+        {
+          "index": "13",
+          "title": "标签",
+          "hidden": 0,
+          "menuType": "holder",
+          "menuId": 102
+        },
+        {
+          "index": "/fundLabel",
+          "title": "标签选基",
+          "hidden": 0,
+          "menuType": "inner",
+          "menuId": 16,
+          "componentPath": "fundResearch/fundLabel/FundLabel.vue"
         }
       ]
     ]
