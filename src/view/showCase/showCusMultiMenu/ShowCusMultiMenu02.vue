@@ -1,35 +1,55 @@
 <template>
-  <el-menu
-    class="nav-menu"
-    mode="horizontal"
-    @mouseenter="handleMenuEnter"
-    @mouseleave="handleMenuLeave"
-  >
+  <el-menu class="nav-menu" mode="horizontal">
     <el-menu-item index="1">菜单1</el-menu-item>
-    <el-submenu index="2" ref="submenu2">
-      <template slot="title">
-        菜单2
-      </template>
-      <el-row class="submenu-row">
-        <el-col :span="6">
-          <div>子菜单1</div>
-          <el-menu-item index="2-1-1">子菜单1-1</el-menu-item>
-          <el-menu-item index="2-1-2">子菜单1-2</el-menu-item>
-          <el-menu-item index="2-1-3">子菜单1-3</el-menu-item>
-        </el-col>
-        <el-col :span="6">
-          <div>子菜单2</div>
-          <el-menu-item index="2-2-1">子菜单2-1</el-menu-item>
-          <el-menu-item index="2-2-2">子菜单2-2</el-menu-item>
-          <el-menu-item index="2-2-3">子菜单2-3</el-menu-item>
-        </el-col>
-        <el-col :span="6">
-          <div>子菜单3</div>
-          <el-menu-item index="2-3-1">子菜单3-1</el-menu-item>
-          <el-menu-item index="2-3-2">子菜单3-2</el-menu-item>
-          <el-menu-item index="2-3-3">子菜单3-3</el-menu-item>
-        </el-col>
-      </el-row>
+    <el-submenu index="2">
+      <template slot="title">菜单2</template>
+      <div class="submenu-row">
+        <div class="submenu-col">
+          <el-menu-item index="1-1">
+            <div class="submenu-item submenu-holder">子菜单1-1</div>
+          </el-menu-item>
+          <el-menu-item index="1-2">
+            <a class="submenu-item submenu-link">子菜单1-2</a>
+          </el-menu-item>
+          <el-menu-item index="1-3">
+            <router-link to="1-3" class="submenu-item submenu-link">子菜单1-3</router-link>
+          </el-menu-item>
+          <el-menu-item index="2-1">
+            <div class="submenu-item submenu-holder">子菜单2-1</div>
+          </el-menu-item>
+          <el-menu-item index="2-2">
+            <a class="submenu-item submenu-link">子菜单2-2</a>
+          </el-menu-item>
+        </div>
+        <div class="submenu-col">
+          <el-menu-item index="3-1">
+            <div class="submenu-item submenu-holder">子菜单3</div>
+          </el-menu-item>
+          <el-menu-item index="3-2">
+            <a class="submenu-item submenu-link">子菜单3-2</a>
+          </el-menu-item>
+          <el-menu-item index="3-3">
+            <a class="submenu-item submenu-link">子菜单3-3</a>
+          </el-menu-item>
+          <el-menu-item index="3-4">
+            <a class="submenu-item submenu-link">子菜单3-4</a>
+          </el-menu-item>
+        </div>
+        <div class="submenu-col">
+          <el-menu-item index="4-1">
+            <div class="submenu-item submenu-holder">子菜单4-1</div>
+          </el-menu-item>
+          <el-menu-item index="4-2">
+            <a class="submenu-item submenu-link">子菜单4-2</a>
+          </el-menu-item>
+          <el-menu-item index="4-3">
+            <div class="submenu-item submenu-holder">子菜单4-3</div>
+          </el-menu-item>
+          <el-menu-item index="4-4">
+            <a class="submenu-item submenu-link">子菜单4-4</a>
+          </el-menu-item>
+        </div>
+      </div>
     </el-submenu>
     <el-menu-item index="3">菜单3</el-menu-item>
   </el-menu>
@@ -38,54 +58,61 @@
 <script>
 export default {
   name: "ShowCusMultiMenu02",
-  methods: {
-    handleMenuEnter() {
-      this.$refs.submenu2.forEach((submenu) => {
-        submenu.showPopper();
-        submenu.$refs.submenu.forEach((submenu) => {
-          submenu.showPopper();
-        });
-      });
-    },
-    handleMenuLeave() {
-      this.$refs.submenu2.forEach((submenu) => {
-        submenu.hidePopper();
-        submenu.$refs.submenu.forEach((submenu) => {
-          submenu.hidePopper();
-        });
-      });
-    },
-  },
+  methods: {}
 };
 </script>
 
-<style scoped>
-.el-menu--horizontal .el-submenu__title:hover .el-icon-arrow-down,
-.el-menu--horizontal .el-submenu__title:hover .el-icon-arrow-right {
-  transform: rotate(180deg);
+<style lang="scss" scoped>
+.el-menu {
+  // ↓ 一级菜单(的标题)
+  .el-menu-item {
+    padding: 0;
+    border: 0;
+    background-color: transparent !important;
+  }
+  // ↓ 二级菜单(的标题)
+  .el-submenu {
+    padding: 0;
+    border: 0;
+    background-color: transparent !important;
+  }
+  // ↓ 给.el-menu-item下的a标签和router-link
+  .menu-link {
+    display: block;
+    height: 60px;
+    padding: 0 20px;
+    text-decoration: none;
+  }
 }
 
-.el-menu--horizontal .el-submenu__title .el-icon-arrow-down,
-.el-menu--horizontal .el-submenu__title .el-icon-arrow-right {
-  transition: all 0.3s;
-  margin-left: 5px;
-}
-
-.el-row {
+// ↓ 二级菜单css (展开的菜单窗体)
+.submenu-row {
   display: flex;
-  flex-wrap: wrap;
+  padding: 5px;
+  .submenu-col {
+    width: 120px;
+    padding: 0 15px;
+    .el-menu-item {
+      width: 100%;
+    }
+    .submenu-item {
+      height: 36px !important;
+      line-height: 36px !important;
+      color: var(--dark-color);
+    }
+    .submenu-link {
+      height: 36px;
+      font: 14px/36px "Microsoft YaHei";
+      text-decoration: none;
+      &:hover {
+        color: #1b5fc5;
+      }
+    }
+    .submenu-holder {
+      font: bold 16px/36px "Microsoft YaHei";
+      cursor: default;
+      border-bottom: 2px solid var(--grey-color);
+    }
+  }
 }
-
-.el-col {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.el-menu-item.is-active,
-.el-submenu.is-active > .el-submenu__title {
-  background-color: #f5f5f5;
-  color: #409EFF;
-}
-
+</style>
