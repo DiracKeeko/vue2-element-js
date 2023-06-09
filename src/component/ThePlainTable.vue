@@ -9,7 +9,7 @@
           ? (a, b) => sortMethodObj[col.customSortMethod](a, b, col.prop)
           : undefined
       "
-      :show-overflow-tooltip="!col['show-overflow-tooltip']"
+      :show-overflow-tooltip="!col['hidden-overflow-tooltip']"
     >
       <template v-if="col.slotHeader" #header="{ column, $index }">
         <slot :name="col.slotHeader" :row="column" :index="$index"> </slot>

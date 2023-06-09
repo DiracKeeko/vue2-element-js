@@ -134,6 +134,14 @@ const menuConfigArr = [
         "componentPath": "showCase/showSkeletonRender/ShowSkeletonRender.vue"
       },
       {
+        "index": "/thePlainTable",
+        "title": "thePlainTable",
+        "hidden": 0,
+        "menuType": "inner",
+        "menuId": 1,
+        "componentPath": "showCase/showThePlainTable/ShowThePlainTable.vue"
+      },
+      {
         "index": "/showVxeTable",
         "title": "showVxeTable",
         "hidden": 0,
