@@ -27,7 +27,7 @@ export default {
   margin-top: 60px;
   .app-container {
     background-color: #f5f5f5;
-    min-height: calc(100vh - 60px);
+    min-height: calc(100vh - 150px);
     padding-top: 60px;
     overflow-x: hidden;
   }
