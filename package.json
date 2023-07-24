@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
+    "lint:all": "eslint \"src/**/*.{js,vue,json,html}\"",
+    "lint:current": "eslint",
     "precommit": "lint-staged",
     "prepare": "husky install"
   },
@@ -29,6 +30,8 @@
     "@vue/eslint-config-standard": "^5.1.2",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
@@ -47,14 +50,8 @@
     }
   },
   "lint-staged": {
-    "*.{js,json,vue,html,scss,css,yml,md}": [
-      "prettier --write"
-    ],
-    "src/**/*.{vue,scss}": [
-      "stylelint --fix"
-    ],
-    "src/**/*.{js,vue,json}": [
-      "eslint --fix"
+    "*.{js,jsx,vue,html,json}": [
+      "npm run lint:current"
     ]
   }
 }

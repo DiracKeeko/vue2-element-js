@@ -8,7 +8,7 @@ module.exports = {
   extends: [
     "airbnb-base",
     "eslint:recommended",
-    "plugin:vue/essential",
+    "plugin:vue/recommended",
     "prettier",
     "prettier/vue"
   ],
@@ -16,9 +16,12 @@ module.exports = {
     parser: "babel-eslint"
   },
   rules: {
-    "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
-    "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off"
-    // 'vue/no-v-for-template-key': 'off', // vue2
-    // 'vue/no-v-for-template-key-on-child': 'off' // vue3
+    'no-console': 0,
+		'vue/valid-template-root': 0,
+		'import/no-extraneous-dependencies': 0,
+		'no-param-reassing': 0,
+		'vue/multi-word-commponent-names': 0,
+		'vue/attribute-hyphenation': 0,
+		'vue/v-on-event-hyphenation': 0,
   }
 };
