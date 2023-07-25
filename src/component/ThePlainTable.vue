@@ -53,7 +53,7 @@ export default {
           if (b[prop] === undefined) {
             return -1;
           }
-          if (isNaN(Number(a[prop]))) {
+          if (Number.isNaN(Number(a[prop]))) {
             return a[prop].localeCompare(b[prop]);
           }
           return a[prop] - b[prop];
@@ -62,7 +62,7 @@ export default {
     };
   },
   methods: {
-    basicTableCellFormatter() {
+    basicTableCellFormatter(row, column, value, index) {
       const parentFormatterRes = this.parentFormatter
         ? this.parentFormatter(row, column, value, index)
         : false;

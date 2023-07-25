@@ -31,7 +31,7 @@
           popper-class="popup-menu"
         >
           <template slot="title">{{ item.title }}</template>
-          <div v-for="i in item.menuItem">
+          <div v-for="(i, indexSub) in item.menuItem" :key="indexSub">
             <el-menu-item v-show="i.hidden === 0" :key="i.index" :index="i.index">
               <a
                 v-if="i.menuType && i.menuType === 'outer'"

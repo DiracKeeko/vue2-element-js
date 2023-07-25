@@ -26,7 +26,7 @@ export default {
         const str = this.trimJson(this.textContent);
         const jsonObj = JSON.parse(str);
 
-        if (typeof str === 'string' && typeof jsonObj === 'object' && obj) {
+        if (typeof str === 'string' && typeof jsonObj === 'object' && jsonObj) {
           const jsonStr = JSON.stringify(jsonObj, null, 2);
           this.textContent = jsonStr;
         } else {
