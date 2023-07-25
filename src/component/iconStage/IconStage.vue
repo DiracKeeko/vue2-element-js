@@ -1,11 +1,11 @@
 <template>
   <div class="icon-stage">
     <el-input
-      class="icon-stage-input-icon"
       v-model="name"
-      @input="filterIcons"
+      class="icon-stage-input-icon"
       suffix-icon="el-icon-search"
       placeholder="请输入图标名称"
+      @input="filterIcons"
     ></el-input>
     <ul class="icon-stage-list">
       <li v-for="(item, index) in showList" :key="index" @click="selectedIcon(item)">
@@ -18,6 +18,7 @@
 
 <script>
 import { elementIcons } from './constant.js';
+
 export default {
   name: 'IconStage',
   data() {

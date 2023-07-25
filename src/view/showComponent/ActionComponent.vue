@@ -15,19 +15,19 @@
         </TwoDatePicker>
       </div>
       <el-row>
-        <el-col :span="6">dateRange: {{dateRange}}</el-col>
+        <el-col :span="6">dateRange: {{ dateRange }}</el-col>
       </el-row>
       <el-row>
-        <el-col :span="5">startDate: {{startDate}}</el-col>
-        <el-col :span="5">endDate: {{endDate}}</el-col>
+        <el-col :span="5">startDate: {{ startDate }}</el-col>
+        <el-col :span="5">endDate: {{ endDate }}</el-col>
       </el-row>
     </div>
-    
   </div>
 </template>
 
 <script>
 import TwoDatePicker from "@/component/TwoDatePicker";
+
 export default {
   name: "ActionComponent",
   components: {
@@ -49,6 +49,5 @@ export default {
   .action-component-row {
     width: 300px;
   }
-
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="test-json-format">
-    <el-input type="textarea" :rows="4" placeholder="请输入JSON" v-model="textContent"> </el-input>
+    <el-input v-model="textContent" type="textarea" :rows="4" placeholder="请输入JSON"> </el-input>
     <el-button @click="handleJsonFormat">jsonFormat</el-button>
   </div>
 </template>

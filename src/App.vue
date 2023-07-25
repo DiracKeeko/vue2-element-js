@@ -9,6 +9,7 @@
 
 <script>
 import CusHeader from "@/component/CusHeader.vue";
+
 export default {
   name: 'App',
   components: {

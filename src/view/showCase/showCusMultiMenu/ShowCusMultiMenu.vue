@@ -62,13 +62,13 @@ export default {
       ]
     };
   },
-  mounted() {
-    this.activeIndex = this.$route.path; // 设置当前选中的菜单项为当前路由路径
-  },
   watch: {
-    $route: function() {
+    $route() {
       this.activeIndex = this.$route.path; // 监听路由变化，切换选中的菜单项
     }
+  },
+  mounted() {
+    this.activeIndex = this.$route.path; // 设置当前选中的菜单项为当前路由路径
   }
 };
 </script>

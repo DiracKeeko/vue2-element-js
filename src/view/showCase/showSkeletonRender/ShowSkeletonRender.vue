@@ -1,7 +1,7 @@
 <template>
   <div class="skeleton-container">
     <div class="list-container">
-      <div class="list-item" v-for="(fundItem, index) in skeletonArr" :key="index">
+      <div v-for="(fundItem, index) in skeletonArr" :key="index" class="list-item">
         <div class="fund-info">
           <div class="fund-info-top">
             <span class="fund-name">{{ fundItem.fundName }}</span>
@@ -32,18 +32,18 @@
         </div>
         <div class="incident-type-list">
           <div
-            class="incident-type-item"
             v-for="incidentTypeItem in fundItem.incidentTypeArr"
             :key="incidentTypeItem.incidentType"
+            class="incident-type-item"
           >
             <div class="incident-type">
               <span class="incident-type-name">{{ incidentTypeItem.incidentName }}</span>
               <span class="incident-type-count">({{ incidentTypeItem.incidentCount }})</span>
             </div>
             <div
-              class="incident"
               v-for="incidentItem in incidentTypeItem.incidentArr"
               :key="incidentItem.incidentId"
+              class="incident"
             >
               <div class="incident-top">
                 <span class="incident-id">{{ incidentItem.incidentId }}</span>
@@ -82,6 +82,7 @@
 
 <script>
 import CapsuleTagVue from "@/component/CapsuleTag.vue";
+
 export default {
   name: "ShowSkeletonRender",
   components: {

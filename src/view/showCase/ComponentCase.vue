@@ -10,6 +10,7 @@
 
 <script>
 import CardWithSlot from "@/component/CardWithSlot.vue";
+
 export default {
   name: "ComponentCase",
   components: {

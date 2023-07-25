@@ -4,11 +4,11 @@
     placement="left-start"
     width="540"
     trigger="click"
-    @show="$refs.iconStage.reset()"
     popper-class="popper-class"
+    @show="$refs.iconStage.reset()"
   >
     <IconStage ref="iconStage" @selected="selectedIcon"></IconStage>
-    <div class="icon-container" slot="reference"><i class="icon-select" :class="menuIcon"></i></div>
+    <div slot="reference" class="icon-container"><i class="icon-select" :class="menuIcon"></i></div>
   </el-popover>
 </template>
 
@@ -24,16 +24,16 @@ export default {
       default: ''
     }
   },
+  data() {
+    return {
+      menuIcon: ''
+    };
+  },
   mounted() {
     const { initialIcon } = this;
     if (initialIcon !== '') {
       this.menuIcon = initialIcon;
     }
-  },
-  data() {
-    return {
-      menuIcon: ''
-    };
   },
   methods: {
     selectedIcon(name) {
