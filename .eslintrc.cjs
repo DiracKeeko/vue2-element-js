@@ -17,16 +17,14 @@ module.exports = {
   },
   rules: {
     "no-console": 0, // 0 = off, 1 = warn, 2 = error
-    "vue/valid-template-root": 0,
-    "import/no-extraneous-dependencies": 2,
-    "no-param-reassing": 0,
     "vue/multi-word-commponent-names": 0,
     "vue/attribute-hyphenation": 0,
     "vue/v-on-event-hyphenation": 0,
-    camelcase: "off",
+    "camelcase": "off",
+    "complexity": "off",
+    "global-require": 0,
     "import/prefer-default-export": "off",
     "import/extensions": "off",
-    // parcel support
     "import/no-absolute-path": "off",
     "import/no-unresolved": "off",
     "func-names": "off",
@@ -53,10 +51,6 @@ module.exports = {
     ],
     "no-shadow": ["error", { allow: ["state"] }],
     "no-unused-expressions": ["error", { allowShortCircuit: true, allowTernary: true }],
-    "no-plusplus": ["error", { allowForLoopAfterthoughts: true }],
-    // experiment
-    complexity: ["off", 11],
-    "no-console": "off",
-    "global-require": 0
+    "no-plusplus": ["error", { allowForLoopAfterthoughts: true }]
   }
 };
