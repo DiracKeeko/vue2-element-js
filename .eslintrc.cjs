@@ -17,7 +17,7 @@ module.exports = {
   },
   rules: {
     "no-console": 0, // 0 = off, 1 = warn, 2 = error
-    "vue/multi-word-commponent-names": 0,
+    "vue/multi-word-component-names": 0,
     "vue/attribute-hyphenation": 0,
     "vue/v-on-event-hyphenation": 0,
     "camelcase": "off",
