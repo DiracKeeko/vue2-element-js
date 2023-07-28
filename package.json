@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "eslint \"src/**/*.{js,vue,json,html}\"",
-    "lint:fix": "eslint \"src/**/*.{js,vue,json,html}\" --fix",
+    "lint": "eslint \"src/**/*.{js,vue,html}\"",
+    "lint:fix": "eslint \"src/**/*.{js,vue,html}\" --fix",
     "precommit": "lint-staged"
   },
   "dependencies": {
