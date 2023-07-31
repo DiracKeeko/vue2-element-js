@@ -16,6 +16,7 @@ const config = {
   // },
   lintOnSave: false,
   devServer: {
+    port: 6060,
     overlay: {
       warning: false,
       errors: false

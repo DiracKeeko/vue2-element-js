@@ -157,6 +157,14 @@ const menuConfigArr = [
         "menuId": 1,
         "componentPath": "showCase/showGlobalMixin/ShowGlobalMixin"
       },
+      {
+        "index": "/showPdfExporter",
+        "title": "showPdfExporter",
+        "hidden": 0,
+        "menuType": "inner",
+        "menuId": 1,
+        "componentPath": "showCase/showPdfExporter/ShowPdfExporter"
+      },
     ]
   },
   {
