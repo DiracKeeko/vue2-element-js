@@ -19,7 +19,9 @@
 </template>
 
 <script>
-import { getImageBase64Url, getImage, getSinglePagePdf } from "pdf-exporter";
+import { getSinglePagePdf } from "pdf-exporter";
+
+import { getImage } from "./imageExporter";
 import viteLogo from './vite-logo.png';
 import vue2Logo from "./vue-logo.svg";
 
@@ -41,15 +43,10 @@ export default {
   computed: {},
   watch: {},
   methods: {
-    async getImageUrl(element) {
-      return getImageBase64Url(element);
-    },
     async handleExportImage() {
-      const exportName = `test_pdf_exporter_download`;
-      const pdfElement = document.querySelector(".content-container");
-      const url = await this.getImageUrl(pdfElement);
-      console.log("url", url);
-      await getImage(exportName, pdfElement);
+      const exportName = `test_image`;
+      const imageElement = document.querySelector(".content-container");
+      await getImage(exportName, { element: imageElement, text: "数据来源于wind", logo: vue2Logo });
     },
     handleExportPdf() {
       const exportName = `test_pdf_exporter_download`;
