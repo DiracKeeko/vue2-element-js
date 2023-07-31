@@ -1,9 +1,13 @@
 import html2Canvas from "html2canvas";
 
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 async function getImageBase64Url(element) {
   const { scrollWidth, scrollHeight } = element;
-  const canvasWidth = scrollWidth + 10;
-  const canvasHeight = scrollHeight + 10;
+  const canvasWidth = scrollWidth + 5;
+  const canvasHeight = scrollHeight + 5;
   const options = {
     scale: 2,
     width: canvasWidth,
@@ -21,15 +25,16 @@ async function getImage(title, { element, text, logo }) {
   try {
     const imageUrl = await getImageBase64Url(element);
 
-    // 创建外层容器元素 <div class="image-export-template">
+    // 创建外层容器元素 <div class="image-export">
     const container = document.createElement("div");
-    container.classList.add("image-export-template");
+    container.classList.add("image-export");
     container.style.padding = "20px 20px 0";
     container.style.minWidth = "800px";
 
     // 创建图片元素 <img class="content" src="imageUrl" />
     const image = document.createElement("img");
     image.classList.add("content");
+    image.style.width = "100%";
     image.src = imageUrl; // 设置图片的 URL
 
     // 创建分割线元素 <div class="cutline"></div>
@@ -66,10 +71,17 @@ async function getImage(title, { element, text, logo }) {
     container.appendChild(image);
     container.appendChild(cutline);
     container.appendChild(footer);
+    console.log("container: ", container);
+
+    document.body.appendChild(container);
+    await sleep(5);
 
     const { scrollWidth, scrollHeight } = container;
+    // const canvasWidth = 800;
+    // const canvasHeight = 1000;
     const canvasWidth = scrollWidth;
-    const canvasHeight = scrollHeight;
+    const canvasHeight = scrollHeight + 20;
+    console.log(canvasWidth, canvasHeight);
 
     const opts = {
       scale: 2,
@@ -80,13 +92,12 @@ async function getImage(title, { element, text, logo }) {
       taintTest: false,
       logging: false
     };
-    // document.body.appendChild(container);
-    const canvas = await html2Canvas(element, opts);
+    const canvas = await html2Canvas(container, opts);
     const imgUrl = canvas.toDataURL("image/jpeg", 1.0);
-
     const link = document.createElement("a");
     link.href = imgUrl;
     link.download = title;
+    document.body.removeChild(container);
     link.click();
   } catch (err) {
     console.log(err);
