@@ -1,15 +1,15 @@
 import html2Canvas from "html2canvas";
 
 function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 async function getImageBase64Url(element) {
-  const { scrollWidth, scrollHeight } = element;
-  const canvasWidth = scrollWidth + 5;
-  const canvasHeight = scrollHeight + 5;
+  const { offsetWidth, offsetHeight } = element;
+  const canvasWidth = offsetWidth;
+  const canvasHeight = offsetHeight;
   const options = {
-    scale: 2,
+    scale: 4,
     width: canvasWidth,
     height: canvasHeight,
     useCORS: true,
@@ -71,17 +71,12 @@ async function getImage(title, { element, text, logo }) {
     container.appendChild(image);
     container.appendChild(cutline);
     container.appendChild(footer);
-    console.log("container: ", container);
-
     document.body.appendChild(container);
     await sleep(5);
 
-    const { scrollWidth, scrollHeight } = container;
-    // const canvasWidth = 800;
-    // const canvasHeight = 1000;
-    const canvasWidth = scrollWidth;
-    const canvasHeight = scrollHeight + 20;
-    console.log(canvasWidth, canvasHeight);
+    const { offsetWidth, offsetHeight } = container;
+    const canvasWidth = offsetWidth + 20;
+    const canvasHeight = offsetHeight + 20;
 
     const opts = {
       scale: 2,
