@@ -16,6 +16,7 @@
     "element-ui": "^2.15.10",
     "html2canvas": "^1.4.1",
     "js-financial-tools": "^2.0.3",
+    "lodash": "^4.17.21",
     "pdf-exporter": "^1.1.0",
     "vue": "^2.7.13",
     "vue-router": "^3.4.8",

@@ -22,22 +22,30 @@
         <el-col :span="5">endDate: {{ endDate }}</el-col>
       </el-row>
     </div>
+    <div class="mt-5">
+      <ButtonSwitch v-model="curTypeKey" :tab-key-list="typeKeyList" :tab-label-list="typeLabelList"></ButtonSwitch>
+    </div>
   </div>
 </template>
 
 <script>
 import TwoDatePicker from "@/component/TwoDatePicker";
+import ButtonSwitch from '@/component/ButtonSwitch';
 
 export default {
   name: "ActionComponent",
   components: {
-    TwoDatePicker
+    TwoDatePicker,
+    ButtonSwitch
   },
   data() {
     return {
       dateRange: ["", ""],
       startDate: "",
-      endDate: ""
+      endDate: "",
+      curTypeKey: "stock",
+      typeKeyList: ["stock", "bond", "sharp", "marco"],
+      typeLabelList: ["股票", "债券", "夏普比率", "宏观"],
     };
   },
   methods: {}
