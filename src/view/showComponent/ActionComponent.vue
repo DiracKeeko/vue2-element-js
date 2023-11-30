@@ -23,20 +23,33 @@
       </el-row>
     </div>
     <div class="mt-5">
-      <ButtonSwitch v-model="curTypeKey" :tab-key-list="typeKeyList" :tab-label-list="typeLabelList"></ButtonSwitch>
+      <ButtonSwitch
+        v-model="curTypeKey"
+        :tab-key-list="typeKeyList"
+        :tab-label-list="typeLabelList"
+      ></ButtonSwitch>
+
+      <UnderscoreSwitch
+        v-model="curTypeKey"
+        :tab-key-list="typeKeyList"
+        :tab-label-list="typeLabelList"
+        class="mt-5"
+      ></UnderscoreSwitch>
     </div>
   </div>
 </template>
 
 <script>
 import TwoDatePicker from "@/component/TwoDatePicker";
-import ButtonSwitch from '@/component/ButtonSwitch';
+import ButtonSwitch from "@/component/ButtonSwitch";
+import UnderscoreSwitch from "@/component/UnderscoreSwitch";
 
 export default {
   name: "ActionComponent",
   components: {
     TwoDatePicker,
-    ButtonSwitch
+    ButtonSwitch,
+    UnderscoreSwitch
   },
   data() {
     return {
@@ -45,7 +58,7 @@ export default {
       endDate: "",
       curTypeKey: "stock",
       typeKeyList: ["stock", "bond", "sharp", "marco"],
-      typeLabelList: ["股票", "债券", "夏普比率", "宏观"],
+      typeLabelList: ["股票", "债券", "夏普比率", "宏观"]
     };
   },
   methods: {}
