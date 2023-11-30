@@ -61,9 +61,8 @@ export default {
 
       .underscore-switch-item {
         display: inline-block;
-        margin-bottom: -1px;
-        z-index: 88;
         padding: 0 0.75rem;
+        margin-bottom: -1px;
         font-size: 0.88rem;
         line-height: 1.75rem;
         color: #333;

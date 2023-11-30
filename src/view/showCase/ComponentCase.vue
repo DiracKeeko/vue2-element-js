@@ -1,20 +1,31 @@
 <template>
-  <CardWithSlot :cut-line="true" class="card-self">
-    <template #topLeft> 左上角 </template>
-    <template #topRight> 右上角 </template>
-    <template #contentContainer>
-      <div class="container-self">内容区</div>
-    </template>
-  </CardWithSlot>
+  <div>
+    <CardWithSlot :cut-line="true" class="card-self">
+      <template #topLeft> 左上角 </template>
+      <template #topRight> 右上角 </template>
+      <template #contentContainer>
+        <div class="container-self">内容区</div>
+      </template>
+    </CardWithSlot>
+
+    <CardWithTitle card-title="近期业绩排行" :cut-line="true" class="card-self">
+      <template #topRight> 右上角 </template>
+      <template #contentContainer>
+        <div class="container-self">内容区</div>
+      </template>
+    </CardWithTitle>
+  </div>
 </template>
 
 <script>
 import CardWithSlot from "@/component/CardWithSlot.vue";
+import CardWithTitle from "@/component/CardWithTitle.vue";
 
 export default {
   name: "ComponentCase",
   components: {
-    CardWithSlot
+    CardWithSlot,
+    CardWithTitle
   }
 };
 </script>

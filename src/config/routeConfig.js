@@ -102,8 +102,8 @@ const menuConfigArr = [
     "menuId": 3,
     "menuItem": [
       {
-        "index": "/showCase01",
-        "title": "showCase01",
+        "index": "/cardLayout",
+        "title": "cardLayout",
         "hidden": 0,
         "menuType": "inner",
         "menuId": 1,
