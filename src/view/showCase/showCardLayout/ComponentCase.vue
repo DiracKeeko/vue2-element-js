@@ -14,6 +14,8 @@
         <div class="container-self">内容区</div>
       </template>
     </CardWithTitle>
+
+    <RankCard></RankCard>
   </div>
 </template>
 
@@ -21,11 +23,14 @@
 import CardWithSlot from "@/component/CardWithSlot.vue";
 import CardWithTitle from "@/component/CardWithTitle.vue";
 
+import RankCard from "./RankCard.vue";
+
 export default {
   name: "ComponentCase",
   components: {
     CardWithSlot,
-    CardWithTitle
+    CardWithTitle,
+    RankCard
   }
 };
 </script>

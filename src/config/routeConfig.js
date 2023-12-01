@@ -107,7 +107,7 @@ const menuConfigArr = [
         "hidden": 0,
         "menuType": "inner",
         "menuId": 1,
-        "componentPath": "showCase/ComponentCase.vue"
+        "componentPath": "showCase/showCardLayout/ComponentCase.vue"
       },
       {
         "index": "/showCusMultiMenu",
