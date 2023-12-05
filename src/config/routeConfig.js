@@ -102,12 +102,12 @@ const menuConfigArr = [
     "menuId": 3,
     "menuItem": [
       {
-        "index": "/cardLayout",
-        "title": "cardLayout",
+        "index": "/showCardLayout",
+        "title": "showCardLayout",
         "hidden": 0,
         "menuType": "inner",
         "menuId": 1,
-        "componentPath": "showCase/showCardLayout/ComponentCase.vue"
+        "componentPath": "showCase/showCardLayout/ShowCardLayout.vue"
       },
       {
         "index": "/showCusMultiMenu",

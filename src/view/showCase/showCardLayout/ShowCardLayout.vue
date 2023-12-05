@@ -15,6 +15,11 @@
       </template>
     </CardWithTitle>
 
+    <AsideTab v-model="curSelectKey" :label-arr="labelArr">
+      <template #contentContainer>
+        {{ curSelectKey }}
+      </template>
+    </AsideTab>
     <RankCard></RankCard>
   </div>
 </template>
@@ -22,15 +27,23 @@
 <script>
 import CardWithSlot from "@/component/CardWithSlot.vue";
 import CardWithTitle from "@/component/CardWithTitle.vue";
+import AsideTab from "@/component/AsideTab.vue";
 
 import RankCard from "./RankCard.vue";
 
 export default {
-  name: "ComponentCase",
+  name: "ShowCardLayout",
   components: {
     CardWithSlot,
     CardWithTitle,
+    AsideTab,
     RankCard
+  },
+  data() {
+    return {
+      curSelectKey: "配置管理",
+      labelArr: ["用户管理", "配置管理", "角色管理", "定时任务"]
+    }
   }
 };
 </script>

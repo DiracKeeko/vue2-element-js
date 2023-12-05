@@ -20,7 +20,7 @@
 import { throttle } from "lodash";
 
 export default {
-  name: "ButtonSwitch",
+  name: "UnderscoreSwitch",
   model: {
     prop: "curSelectKey",
     event: "tabChange"
