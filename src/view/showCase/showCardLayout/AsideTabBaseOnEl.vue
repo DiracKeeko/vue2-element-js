@@ -1,5 +1,5 @@
 <template>
-  <div class="aside-tab">
+  <div class="aside-tab-base-on-el">
     <el-tabs tab-position="left" :value="curSelectKey" @tab-click="handleTabClick">
       <el-tab-pane v-for="(label, index) in labelArr" :key="index" :label="label" :name="label">
         <slot name="contentContainer"></slot>
@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: "AsideTab",
+  name: "AsideTabBaseOnEl",
   model: {
     prop: "curSelectKey",
     event: "tabChange"
@@ -40,7 +40,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.aside-tab {
+.aside-tab-base-on-el {
   width: 600px;
   border: 1px solid blue;
   ::v-deep .el-tabs__header {

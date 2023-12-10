@@ -15,11 +15,11 @@
       </template>
     </CardWithTitle>
 
-    <AsideTab v-model="curSelectKey" :label-arr="labelArr">
+    <AsideTabBaseOnEl v-model="curSelectKey" :label-arr="labelArr">
       <template #contentContainer>
         {{ curSelectKey }}
       </template>
-    </AsideTab>
+    </AsideTabBaseOnEl>
     <RankCard></RankCard>
   </div>
 </template>
@@ -27,8 +27,9 @@
 <script>
 import CardWithSlot from "@/component/CardWithSlot.vue";
 import CardWithTitle from "@/component/CardWithTitle.vue";
-import AsideTab from "@/component/AsideTab.vue";
+// import AsideTab from "@/component/AsideTab.vue";
 
+import AsideTabBaseOnEl from "./AsideTabBaseOnEl.vue";
 import RankCard from "./RankCard.vue";
 
 export default {
@@ -36,7 +37,7 @@ export default {
   components: {
     CardWithSlot,
     CardWithTitle,
-    AsideTab,
+    AsideTabBaseOnEl,
     RankCard
   },
   data() {
