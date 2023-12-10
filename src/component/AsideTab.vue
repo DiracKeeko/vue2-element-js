@@ -43,5 +43,17 @@ export default {
 .aside-tab {
   width: 600px;
   border: 1px solid blue;
+  ::v-deep .el-tabs__header {
+    .is-left {
+      .el-tabs__nav-scroll {
+        width: 180px;
+        background-color: var(--white-color);
+        .el-tabs__item {
+          height: 60px;
+          text-align: left;
+        }
+      }
+    }
+  }
 }
 </style>
