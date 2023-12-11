@@ -1,7 +1,9 @@
 <template>
   <div class="rank-list-item" @click="item.code && jumpDetail(item.code)">
     <div class="rank-list-item__left">
-      {{ item.rank }}
+      <span :style="{ color: setRankColor(item.rank) }">
+        {{ item.rank }}
+      </span>
     </div>
     <div class="rank-list-item__right">
       <div class="item-title">
@@ -18,6 +20,8 @@
 </template>
 
 <script>
+import { setRankColor } from "@/util/color";
+
 export default {
   name: "RankListItem",
   components: {},
@@ -36,6 +40,7 @@ export default {
     }
   },
   methods: {
+    setRankColor,
     jumpDetail(code) {
       this.jumpFunction(code);
     }
