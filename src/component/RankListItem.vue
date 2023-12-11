@@ -1,5 +1,5 @@
 <template>
-  <div class="rank-list-item" @click="item.code && jumpDetail(item.code)">
+  <div class="rank-list-item" @click="item.code && handleClick(item.code)">
     <div class="rank-list-item__left">
       <span :style="{ color: setRankColor(item.rank) }">
         {{ item.rank }}
@@ -41,8 +41,8 @@ export default {
   },
   methods: {
     setRankColor,
-    jumpDetail(code) {
-      this.jumpFunction(code);
+    handleClick(code) {
+      this.$emit("clickRankItem", code);
     }
   }
 };
@@ -83,7 +83,7 @@ export default {
 }
 .rank-list-item:hover {
   cursor: pointer;
-  background-color: #e9effa;
+  background-color: var(--hover-bg-color);
   .item-title__name {
     color: var(--primary-color);
   }

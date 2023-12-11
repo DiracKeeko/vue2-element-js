@@ -37,7 +37,7 @@
       ></UnderscoreSwitch>
       
       <div class="action-component-example mt-5">
-        <RankList :data-list="dataArr"></RankList>
+        <RankList :data-list="dataArr" :jump-function="fakerDoJump"></RankList>
       </div>
     </div>
   </div>
@@ -70,7 +70,11 @@ export default {
       dataArr: handleRankArr(rankData)
     };
   },
-  methods: {}
+  methods: {
+    fakerDoJump(code) {
+      console.log("do jump code->", code);
+    }
+  }
 };
 </script>
 
