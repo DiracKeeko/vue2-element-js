@@ -35,6 +35,10 @@
         :tab-label-list="typeLabelList"
         class="mt-5"
       ></UnderscoreSwitch>
+      
+      <div class="action-component-example mt-5">
+        <RankList :data-list="dataArr"></RankList>
+      </div>
     </div>
   </div>
 </template>
@@ -44,12 +48,16 @@ import TwoDatePicker from "@/component/TwoDatePicker";
 import ButtonSwitch from "@/component/ButtonSwitch";
 import UnderscoreSwitch from "@/component/UnderscoreSwitch";
 
+import { rankData, handleRankArr } from "./mockData.js";
+import RankList from "./RankList.vue";
+
 export default {
   name: "ActionComponent",
   components: {
     TwoDatePicker,
     ButtonSwitch,
-    UnderscoreSwitch
+    UnderscoreSwitch,
+    RankList
   },
   data() {
     return {
@@ -58,7 +66,8 @@ export default {
       endDate: "",
       curTypeKey: "stock",
       typeKeyList: ["stock", "bond", "sharp", "marco"],
-      typeLabelList: ["股票", "债券", "夏普比率", "宏观"]
+      typeLabelList: ["股票", "债券", "夏普比率", "宏观"],
+      dataArr: handleRankArr(rankData)
     };
   },
   methods: {}
@@ -69,6 +78,12 @@ export default {
 .action-component {
   .action-component-row {
     width: 300px;
+  }
+  .action-component-example {
+    width: 45%;
+    min-width: 400px;
+    padding: 10px;
+    background-color: var(--white-color);
   }
 }
 </style>
