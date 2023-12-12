@@ -5,6 +5,8 @@ import router from "./router";
 import store from "./store";
 import globalMixin from "./mixin/globalMixin";
 
+import "@/icons";
+
 import "./plugin/element.js";
 import "./plugin/vxeTable.js";
 
