@@ -39,6 +39,9 @@
       <div class="action-component-example mt-5">
         <RankList :data-list="dataArr" :jump-function="fakerDoJump"></RankList>
       </div>
+      <div class="action-component-example mt-5">
+        <IndustryAllocationTopFive></IndustryAllocationTopFive>
+      </div>
     </div>
   </div>
 </template>
@@ -49,7 +52,8 @@ import ButtonSwitch from "@/component/ButtonSwitch";
 import UnderscoreSwitch from "@/component/UnderscoreSwitch";
 
 import { rankData, handleRankArr } from "./mockData.js";
-import RankList from "./RankList.vue";
+import RankList from "./component/RankList.vue";
+import IndustryAllocationTopFive from "./component/IndustryAllocationTopFive.vue";
 
 export default {
   name: "ActionComponent",
@@ -57,7 +61,8 @@ export default {
     TwoDatePicker,
     ButtonSwitch,
     UnderscoreSwitch,
-    RankList
+    RankList,
+    IndustryAllocationTopFive
   },
   data() {
     return {
