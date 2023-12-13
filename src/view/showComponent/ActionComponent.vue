@@ -37,10 +37,11 @@
       ></UnderscoreSwitch>
       
       <div class="action-component-example mt-5">
-        <RankList :data-list="dataArr" :jump-function="fakerDoJump"></RankList>
-      </div>
-      <div class="action-component-example mt-5">
         <IndustryAllocationTopFive></IndustryAllocationTopFive>
+      </div>
+      
+      <div class="action-component-example mt-5">
+        <RankList :data-list="dataArr" :jump-function="fakerDoJump"></RankList>
       </div>
     </div>
   </div>

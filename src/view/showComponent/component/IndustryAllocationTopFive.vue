@@ -7,9 +7,11 @@
     <div class="sub-title text-grey">较前20个交易日</div>
     <div class="top5">
       <div v-for="(item, index) in basicData" :key="index" class="top5-item">
-        <div class="industry-name">{{ item.industryName }}</div>
+        <div class="industry-name text-dark">{{ item.industryName }}</div>
         <div class="industry-estimate">
-          <span>{{ item.value }}</span>
+          <span class="industry-estimate-number" :style="{ color: setValueColor(item.value) }">{{
+            formatToPercent(item.value)
+          }}</span>
           <svg-icon v-if="item.value > 0" icon-class="arrow-up-red"></svg-icon>
           <svg-icon v-else icon-class="arrow-down-green"></svg-icon>
         </div>
@@ -19,6 +21,10 @@
 </template>
 
 <script>
+import { formatToPercent } from "js-financial-tools/modules/formatter";
+
+import { setValueColor } from "@/util/color.js";
+
 const defaultData = [
   {
     industryName: "电力设备",
@@ -61,13 +67,16 @@ export default {
   },
   computed: {},
   watch: {},
-  methods: {}
+  methods: {
+    formatToPercent,
+    setValueColor
+  }
 };
 </script>
 
 <style lang="scss" scoped>
 .industry-allocation-top-five {
-  padding: 10px 20px;
+  padding: 15px 20px 5px;
   text-align: center;
   background-color: var(--light-color);
   .title {
@@ -79,6 +88,7 @@ export default {
     }
   }
   .sub-title {
+    margin: 5px 0 0 0;
     font-size: 12px;
   }
   .top5 {
@@ -88,7 +98,17 @@ export default {
   }
   .top5-item {
     width: 20%;
+    padding: 10px 0;
     min-width: 110px;
+    .industry-name {
+      margin: 0 0 5px 0;
+      font-size: 14px;
+    }
+    .industry-estimate {
+      .industry-estimate-number {
+        font-size: 18px;
+      }
+    }
   }
 }
 </style>
