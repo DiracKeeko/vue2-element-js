@@ -36,8 +36,13 @@
         class="mt-5"
       ></UnderscoreSwitch>
       
-      <div class="action-component-example mt-5">
-        <IndustryAllocationTopFive></IndustryAllocationTopFive>
+      <div class="d-flex mt-5">
+        <div class="action-component-example">
+          <IndustryAllocationTopFive></IndustryAllocationTopFive>
+        </div>
+        <div class="action-component-example">
+          <FearGreedIndexVue></FearGreedIndexVue>
+        </div>
       </div>
       
       <div class="action-component-example mt-5">
@@ -55,6 +60,7 @@ import UnderscoreSwitch from "@/component/UnderscoreSwitch";
 import { rankData, handleRankArr } from "./mockData.js";
 import RankList from "./component/RankList.vue";
 import IndustryAllocationTopFive from "./component/IndustryAllocationTopFive.vue";
+import FearGreedIndexVue from "./component/FearGreedIndex.vue";
 
 export default {
   name: "ActionComponent",
@@ -63,7 +69,8 @@ export default {
     ButtonSwitch,
     UnderscoreSwitch,
     RankList,
-    IndustryAllocationTopFive
+    IndustryAllocationTopFive,
+    FearGreedIndexVue
   },
   data() {
     return {

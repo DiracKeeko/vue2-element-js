@@ -117,5 +117,8 @@ export default {
 .industry-allocation-top-five:hover {
   cursor: pointer;
   background-color: var(--hover-bg-color);
+  .title {
+    color: var(--primary-color);
+  }
 }
 </style>
