@@ -1,5 +1,5 @@
 <template>
-  <div class="industry-allocation-top-five">
+  <div class="industry-allocation-top-five" @click="handleClick">
     <div class="title text-dark">
       <span class="title-left">公募基金加仓行业TOP5</span>
       <span class="title-right">(估算)</span>
@@ -69,7 +69,10 @@ export default {
   watch: {},
   methods: {
     formatToPercent,
-    setValueColor
+    setValueColor,
+    handleClick() {
+      console.log("click");
+    }
   }
 };
 </script>
@@ -110,5 +113,9 @@ export default {
       }
     }
   }
+}
+.industry-allocation-top-five:hover {
+  cursor: pointer;
+  background-color: var(--hover-bg-color);
 }
 </style>
