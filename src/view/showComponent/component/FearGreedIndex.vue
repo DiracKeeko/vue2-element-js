@@ -3,7 +3,10 @@
     <div class="title text-dark">恐惧贪婪指数</div>
     <div class="sub-title text-grey">短期情绪</div>
     <div class="content-container">
-      <div class="index-card" :class="attitudeClass"></div>
+      <div class="index-card d-flex jc-between ai-center" :class="attitudeClass">
+        <div class="card-left text-center"></div>
+        <div class="card-right"></div>
+      </div>
     </div>
     <div class="footer">
       {{ cardData.label }}
