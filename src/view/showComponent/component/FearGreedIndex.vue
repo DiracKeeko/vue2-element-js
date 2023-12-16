@@ -5,7 +5,26 @@
     <div class="content-container">
       <div class="index-card d-flex jc-between ai-center" :class="attitudeClass">
         <div class="card-left text-center"></div>
-        <div class="card-right"></div>
+        <div class="card-right">
+          <div class="d-flex jc-between mt-1">
+            <span class="pr-4 fs-xs text-dark-grey">较上日</span>
+            <ColorValue :useArrow="true" :value="cardData.d1Change">{{
+              cardData.d1Change
+            }}</ColorValue>
+          </div>
+          <div class="d-flex jc-between mt-1">
+            <span class="pr-4 fs-xs text-dark-grey">较上周</span>
+            <ColorValue :useArrow="true" :value="cardData.d5Change">{{
+              cardData.d5Change
+            }}</ColorValue>
+          </div>
+          <div class="d-flex jc-between mt-1">
+            <span class="pr-4 fs-xs text-dark-grey">较上月</span>
+            <ColorValue :useArrow="true" :value="cardData.d20Change">{{
+              cardData.d20Change
+            }}</ColorValue>
+          </div>
+        </div>
       </div>
     </div>
     <div class="footer">
