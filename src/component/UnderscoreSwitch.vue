@@ -10,6 +10,7 @@
           @click="throttleMethod(key)"
         >
           {{ tabLabelList[index] }}
+          <div v-show="key === curSelectKey" class="underscore-item-underline"></div>
         </span>
       </div>
     </span>
@@ -40,7 +41,7 @@ export default {
     }
   },
   methods: {
-    throttleMethod: throttle(function(key) {
+    throttleMethod: throttle(function (key) {
       this.$emit("tabChange", key);
     }, 500)
   }
@@ -53,30 +54,27 @@ export default {
     display: flex;
     align-items: center;
     width: 100%;
-    border-bottom: 1px solid #e4e7ed;
-
     .underscore-switch-group-background {
       vertical-align: middle;
-      background-color: #fff;
-
+      background-color: var(--white-color);
       .underscore-switch-item {
         display: inline-block;
-        padding: 0 0.75rem;
+        padding: 0 0.5rem;
         margin-bottom: -1px;
         font-size: 0.88rem;
         line-height: 1.75rem;
-        color: #333;
+        color: var(--dark-color);
         text-align: center;
         cursor: pointer;
-        &:hover {
-          background-color: #ecf5ff;
+        .underscore-item-underline {
+          width: 90%;
+          height: 2px;
+          margin: 0 5%;
+          background-color: var(--primary-color);
         }
       }
-
       .active-underscore-switch-item {
-        // font-weight: bold;
-        color: #1b5fc5;
-        border-bottom: 1px solid #1b5fc5;
+        color: var(--primary-color);
       }
     }
   }
