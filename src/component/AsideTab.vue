@@ -72,9 +72,9 @@ export default {
       .inner-item {
         width: 100%;
         height: 42px;
-        padding: 0 0 0 30px;
-        border-radius: 4px;
+        padding: 0 0 0 12%;
         font: 400 18px/42px "Microsoft YaHei";
+        border-radius: 4px;
       }
     }
     .active-left-tab-item {

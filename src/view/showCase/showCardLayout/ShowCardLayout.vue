@@ -18,7 +18,14 @@
     <div class="bg-white p-5">
       <AsideTab v-model="curSelectKey" :tab-key-list="labelArr" :tab-label-list="labelArr">
         <template #contentContainer>
-          {{ curSelectKey }}
+          <div>
+            <component
+              :is="curRankItem"
+              v-for="(item, index) in rankArr"
+              :key="index"
+              :basic-data="item"
+            ></component>
+          </div>
         </template>
       </AsideTab>
     </div>
@@ -37,8 +44,10 @@ import CardWithSlot from "@/component/CardWithSlot.vue";
 import CardWithTitle from "@/component/CardWithTitle.vue";
 import AsideTab from "@/component/AsideTab.vue";
 
+import { rankArr } from "./mock.js";
 import AsideTabBaseOnEl from "./AsideTabBaseOnEl.vue";
 import RankCard from "./RankCard.vue";
+import ManagerItem from "./rankItem/ManagerItem.vue";
 
 export default {
   name: "ShowCardLayout",
@@ -47,12 +56,19 @@ export default {
     CardWithTitle,
     AsideTab,
     AsideTabBaseOnEl,
-    RankCard
+    RankCard,
+    ManagerItem
   },
   data() {
     return {
-      curSelectKey: "配置管理",
-      labelArr: ["用户管理", "配置管理", "角色管理", "定时任务"]
+      curSelectKey: "基金",
+      labelArr: ["基金", "基金经理", "理财", "保险", "贵金属", "股票"],
+      rankArr
+    };
+  },
+  computed: {
+    curRankItem() {
+      return "ManagerItem";
     }
   }
 };

@@ -53,9 +53,7 @@
 </template>
 
 <script>
-import TwoDatePicker from "@/component/TwoDatePicker";
-import ButtonSwitch from "@/component/ButtonSwitch";
-import UnderscoreSwitch from "@/component/UnderscoreSwitch";
+import TwoDatePicker from "@/component/TwoDatePicker.vue";
 
 import { rankData, handleRankArr } from "./mockData.js";
 import RankList from "./component/RankList.vue";
@@ -66,8 +64,6 @@ export default {
   name: "ActionComponent",
   components: {
     TwoDatePicker,
-    ButtonSwitch,
-    UnderscoreSwitch,
     RankList,
     IndustryAllocationTopFive,
     FearGreedIndex
