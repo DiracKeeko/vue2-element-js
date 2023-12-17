@@ -4,17 +4,9 @@
     :style="{ height: screenSize === 'sm' ? '74px' : '74px' }"
     @click="basicData.productId && handleClick(basicData.productId)"
   >
-    <div class="avatar ml-2">
-      <img v-if="basicData.avatar" :src="getCompleteImageBase64(basicData.avatar)" alt="头像" />
-      <svg-icon
-        v-else
-        icon-class="icon_avatarMale"
-        style="width: 3.75rem; height: 3.75rem"
-      ></svg-icon>
-    </div>
-    <div class="rank-list-item__mid">
-      <div class="manager-name text-dark">{{ basicData.title }}</div>
-      <div class="manager-company text-grey">{{ basicData.subTitle }}</div>
+    <div class="rank-list-item__left">
+      <div class="item-title text-dark">{{ basicData.title }}</div>
+      <div class="item-sub-title text-grey">{{ basicData.subTitle }}</div>
     </div>
     <div class="rank-list-item__right">
       <div class="profit-value" :style="{ color: setValueColor(basicData.gain) }">
@@ -31,7 +23,7 @@ import { formatToPercent } from "js-financial-tools/modules/formatter";
 import { setValueColor, setRankColor } from "@/util/color.js";
 
 export default {
-  name: "ManagerItem",
+  name: "FundItem",
   props: {
     basicData: {
       type: Object,
@@ -48,25 +40,6 @@ export default {
     setRankColor,
     handleClick(productId) {
       this.$emit("clickRankItem", productId);
-    },
-    getImageTypeFromBase64(str) {
-      switch (str.charAt(0)) {
-        case "/":
-          return "image/jpeg";
-        case "i":
-          return "image/png";
-        case "R":
-          return "image/gif";
-        case "U":
-          return "image/webp";
-        case "Q":
-          return "image/bmp";
-        default:
-          return null;
-      }
-    },
-    getCompleteImageBase64(str) {
-      return `data:${this.getImageTypeFromBase64(str) || "image/jpeg"};base64,${str}`;
     }
   }
 };
@@ -87,13 +60,13 @@ export default {
       max-width: 100%;
     }
   }
-  .rank-list-item__mid {
+  .rank-list-item__left {
     flex: 1;
     margin-left: 0.8rem;
-    .manager-name {
+    .item-title {
       margin-bottom: 0.5rem;
     }
-    .manager-company {
+    .item-sub-title {
       font-size: 0.8rem;
     }
   }
@@ -110,7 +83,7 @@ export default {
   &:hover {
     cursor: pointer;
     background-color: var(--hover-bg-color);
-    .manager-name {
+    .item-title {
       color: var(--primary-color);
     }
   }
