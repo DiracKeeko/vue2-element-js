@@ -1,25 +1,30 @@
 <template>
-  <div class="fear-greed-index" @click="handleClick">
+  <div class="fear-greed-index" :class="attitudeClass" @click="handleClick">
     <div class="title text-dark">恐惧贪婪指数</div>
     <div class="sub-title text-grey">短期情绪</div>
     <div class="content-container">
-      <div class="index-card d-flex jc-between ai-center" :class="attitudeClass">
-        <div class="card-left text-center"></div>
+      <div class="index-card d-flex jc-around ai-center">
+        <div class="card-left text-center">
+          <div class="index-num" style="font-size: 40px">
+            {{ cardData.fearGreedIndex }}
+          </div>
+          <div class="fs-xs">恐贪指数</div>
+        </div>
         <div class="card-right">
           <div class="d-flex jc-between mt-1">
-            <span class="pr-4 fs-xs text-dark-grey">较上日</span>
+            <span class="pr-2 fs-xs text-dark-grey">较上日</span>
             <ColorValue :useArrow="true" :value="cardData.d1Change">{{
               cardData.d1Change
             }}</ColorValue>
           </div>
           <div class="d-flex jc-between mt-1">
-            <span class="pr-4 fs-xs text-dark-grey">较上周</span>
+            <span class="pr-2 fs-xs text-dark-grey">较上周</span>
             <ColorValue :useArrow="true" :value="cardData.d5Change">{{
               cardData.d5Change
             }}</ColorValue>
           </div>
           <div class="d-flex jc-between mt-1">
-            <span class="pr-4 fs-xs text-dark-grey">较上月</span>
+            <span class="pr-2 fs-xs text-dark-grey">较上月</span>
             <ColorValue :useArrow="true" :value="cardData.d20Change">{{
               cardData.d20Change
             }}</ColorValue>
@@ -142,11 +147,7 @@ export default {
       width: 80%;
       height: 85px;
       margin: 10px 0 0 0;
-      border: 1px solid var(--grey-color);
       border-radius: 8px;
-    }
-    .attitude-mid {
-      border-color: red;
     }
   }
   .footer {
@@ -158,6 +159,66 @@ export default {
   background-color: var(--hover-bg-color);
   .title {
     color: var(--primary-color);
+  }
+}
+.attitude-extreme-low {
+  .index-card {
+    background-color: #F4FEFA;
+    border: 1px solid #E7F4F0;
+  }
+  .index-num {
+    color: #039967;
+  }
+  .footer {
+    color: #039967;
+  }
+}
+.attitude-low {
+  .index-card {
+    background-color: #F5FCFF;
+    border: 1px solid #D7F1FD;
+  }
+  .index-num {
+    color: #0089C8;
+  }
+  .footer {
+    color: #0089C8;
+  }
+}
+.attitude-mid {
+  .index-card {
+    background-color: #FFF9F0;
+    border: 1px solid #FFEED5;
+  }
+  .index-num {
+    color: #ED9613;
+  }
+  .footer {
+    color: #ED9613;
+  }
+}
+.attitude-high {
+  .index-card {
+    background-color: #FFF9F6;
+    border: 1px solid #FFE9DC;
+  }
+  .index-num {
+    color: #FF6105;
+  }
+  .footer {
+    color: #FF6105;
+  }
+}
+.attitude-extreme-high {
+  .index-card {
+    background-color: #FEF7F8;
+    border: 1px solid #FDEDEE;
+  }
+  .index-num {
+    color: #E12F3D;
+  }
+  .footer {
+    color: #E12F3D;
   }
 }
 </style>
