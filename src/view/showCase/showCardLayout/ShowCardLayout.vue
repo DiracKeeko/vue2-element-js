@@ -50,6 +50,9 @@ import RankCard from "./RankCard.vue";
 import FundItem from "./rankItem/FundItem.vue";
 import ManagerItem from "./rankItem/ManagerItem.vue";
 import WmpItem from "./rankItem/WmpItem.vue";
+import InsuranceItem from "./rankItem/InsuranceItem.vue";
+import PhysicalGoldItem from "./rankItem/PhysicalGoldItem.vue";
+import StockItem from "./rankItem/StockItem.vue";
 
 export default {
   name: "ShowCardLayout",
@@ -61,7 +64,10 @@ export default {
     RankCard,
     FundItem,
     ManagerItem,
-    WmpItem
+    WmpItem,
+    InsuranceItem,
+    PhysicalGoldItem,
+    StockItem
   },
   data() {
     return {
