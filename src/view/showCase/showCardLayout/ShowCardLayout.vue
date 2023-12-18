@@ -47,8 +47,9 @@ import AsideTab from "@/component/AsideTab.vue";
 import { rankArr } from "./mock.js";
 import AsideTabBaseOnEl from "./AsideTabBaseOnEl.vue";
 import RankCard from "./RankCard.vue";
-import ManagerItem from "./rankItem/ManagerItem.vue";
 import FundItem from "./rankItem/FundItem.vue";
+import ManagerItem from "./rankItem/ManagerItem.vue";
+import WmpItem from "./rankItem/WmpItem.vue";
 
 export default {
   name: "ShowCardLayout",
@@ -58,8 +59,9 @@ export default {
     AsideTab,
     AsideTabBaseOnEl,
     RankCard,
+    FundItem,
     ManagerItem,
-    FundItem
+    WmpItem
   },
   data() {
     return {
@@ -70,7 +72,16 @@ export default {
   },
   computed: {
     curRankItem() {
-      return "FundItem";
+      const { curSelectKey, labelArr } = this;
+      const componentNameArr = [
+        "FundItem",
+        "ManagerItem",
+        "WmpItem",
+        "InsuranceItem",
+        "PhysicalGoldItem",
+        "StockItem"
+      ]
+      return componentNameArr[labelArr.indexOf(curSelectKey)];
     }
   }
 };
