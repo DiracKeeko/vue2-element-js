@@ -38,6 +38,9 @@
 
       <div class="d-flex mt-5">
         <div class="action-component-example">
+          <StockBondCostPerformance></StockBondCostPerformance>
+        </div>
+        <div class="action-component-example">
           <IndustryAllocationTopFive></IndustryAllocationTopFive>
         </div>
         <div class="action-component-example">
@@ -57,6 +60,7 @@ import TwoDatePicker from "@/component/TwoDatePicker.vue";
 
 import { rankData, handleRankArr } from "./mockData.js";
 import RankList from "./component/RankList.vue";
+import StockBondCostPerformance from "./component/StockBondCostPerformance.vue";
 import IndustryAllocationTopFive from "./component/IndustryAllocationTopFive.vue";
 import FearGreedIndex from "./component/FearGreedIndex.vue";
 
@@ -65,6 +69,7 @@ export default {
   components: {
     TwoDatePicker,
     RankList,
+    StockBondCostPerformance,
     IndustryAllocationTopFive,
     FearGreedIndex
   },
