@@ -51,6 +51,16 @@
       <div class="action-component-example mt-5">
         <RankList :data-list="dataArr" :jump-function="fakerDoJump"></RankList>
       </div>
+
+      <div class="action-component-example mt-5">
+        <InputWrapper message="一些错误信息" class="mb-6">
+          <el-input v-model="input1" placeholder="默认"></el-input>
+        </InputWrapper>
+        <InputWrapper message="一些提示信息" type="info" class="mb-6">
+          <el-input v-model="input1" placeholder="默认" maxlength="10" show-word-limit></el-input>
+        </InputWrapper>
+      </div>
+
     </div>
   </div>
 </template>
@@ -81,7 +91,8 @@ export default {
       curTypeKey: "stock",
       typeKeyList: ["stock", "bond", "sharp", "marco"],
       typeLabelList: ["股票", "债券", "夏普比率", "宏观"],
-      dataArr: handleRankArr(rankData)
+      dataArr: handleRankArr(rankData),
+      input1: ""
     };
   },
   methods: {
