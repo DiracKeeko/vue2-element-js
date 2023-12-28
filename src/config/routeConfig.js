@@ -150,6 +150,14 @@ const menuConfigArr = [
         "componentPath": "showCase/showVxeTable/ShowVxeTable.vue"
       },
       {
+        "index": "/ShowGlobalDirective",
+        "title": "showGlobalDirective",
+        "hidden": 0,
+        "menuType": "inner",
+        "menuId": 1,
+        "componentPath": "showCase/showGlobalDirective/ShowGlobalDirective"
+      },
+      {
         "index": "/showGlobalMixin",
         "title": "showGlobalMixin",
         "hidden": 0,
