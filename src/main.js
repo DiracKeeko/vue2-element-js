@@ -6,9 +6,10 @@ import store from "./store";
 
 import globalMixin from "./mixin/globalMixin";
 import globalComponent from "./component/globalComponent.js";
+import globalDirective from "@/directive";
+
 
 import "@/icons";
-import "@/directive";
 
 import "./plugin/element.js";
 import "./plugin/vxeTable.js";
@@ -19,6 +20,7 @@ import "./scss/theme.scss";
 
 Vue.mixin(globalMixin);
 Vue.use(globalComponent);
+Vue.use(globalDirective);
 
 Vue.config.productionTip = false;
 

@@ -1,9 +1,10 @@
 <template>
   <div class="skeleton-container">
     <div v-for="(item, index) in dataArr" :key="index">
-      <div class="item">
+      <div class="item d-flex mb-4">
         <div class="item-name">{{ item.name }}</div>
-        <div v-color="item.gain" class="item-gain">{{ item.gain }}</div>
+        <div v-color="item.gain" class="item-gain mr-2">{{ item.gain }}</div>
+        <div v-color-bg="item.gain" style="width: 20px; height: 20px;">bg</div>
       </div>
     </div>
   </div>
