@@ -8,6 +8,7 @@ import globalMixin from "./mixin/globalMixin";
 import globalComponent from "./component/globalComponent.js";
 
 import "@/icons";
+import "@/directive";
 
 import "./plugin/element.js";
 import "./plugin/vxeTable.js";
