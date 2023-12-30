@@ -158,6 +158,14 @@ const menuConfigArr = [
         "componentPath": "showCase/showGlobalDirective/ShowGlobalDirective"
       },
       {
+        "index": "/ShowRegionalDirective",
+        "title": "showRegionalDirective",
+        "hidden": 0,
+        "menuType": "inner",
+        "menuId": 1,
+        "componentPath": "showCase/showRegionalDirective/ShowRegionalDirective"
+      },
+      {
         "index": "/showGlobalMixin",
         "title": "showGlobalMixin",
         "hidden": 0,
