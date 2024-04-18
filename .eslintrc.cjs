@@ -38,13 +38,17 @@ module.exports = {
       {
         "props": true,
         "ignorePropertyModificationsFor": [
-          "e", // for e.returnvalue
+          "incomingMap", // Array.reduce()
+          "incomingData",
+          "incomingParam",
           "el",
           "ctx", // for Koa routing
           "req", // for Express requests
           "request", // for Express requests
           "res", // for Express responses
           "response", // for Express responses
+          "e", // for e.returnvalue
+          "error",
           "s", // for vuex state
           "state" // for vuex state
         ]
