@@ -118,6 +118,14 @@ const menuConfigArr = [
         "componentPath": "showCase/showCusMultiMenu/ShowCusMultiMenu.vue"
       },
       {
+        "index": "/showElUpload",
+        "title": "showElUpload",
+        "hidden": 0,
+        "menuType": "inner",
+        "menuId": 1,
+        "componentPath": "showCase/showElUpload/ShowElUpload.vue"
+      },
+      {
         "index": "/showCusMultiMenu02",
         "title": "showCusMultiMenu02",
         "hidden": 0,
