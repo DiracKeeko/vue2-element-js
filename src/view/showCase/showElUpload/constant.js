@@ -15,15 +15,15 @@ function toBase64(file) {
   });
 };
 
-const notificationPictureMaxSize = 1600 * 1024;
-const notificationPictureWidth = 1200;
-const notificationPictureHeight = 900;
+const pictureMaxSize = 1600 * 1024;
+const pictureWidth = 1200;
+const pictureHeight = 900;
 
 function validateImage({
   imageData,
-  imageWidth = notificationPictureWidth,
-  imageHeight = notificationPictureHeight,
-  maxSize = notificationPictureMaxSize,
+  imageWidth = pictureWidth,
+  imageHeight = pictureHeight,
+  maxSize = pictureMaxSize,
 }) {
   return new Promise((resolve, reject) => {
     if (!imageData.url) {
@@ -32,13 +32,6 @@ function validateImage({
     }
     const image = new Image();
     image.src = imageData.url;
-
-    // if (imageData.size > maxSize) {
-    //   // eslint-disable-next-line prefer-promise-reject-errors
-    //   reject(`图片大小不能超过${Math.floor(maxSize / 1024)}KB`);
-    // }
-    // resolve(imageData);
-    
     image.onload = function() {
       if (imageData.size > maxSize) {
         // eslint-disable-next-line prefer-promise-reject-errors

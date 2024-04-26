@@ -16,8 +16,8 @@
           <span>最大支持1600KB </span>
         </div>
       </el-upload>
-      <div v-if="imageFile.url" class="img-holder mt-2">
-        <img class="image-case" :src="imageFile.url" />
+      <div v-if="imageObj.url" class="img-holder mt-2">
+        <img class="image-case" :src="imageObj.url" />
       </div>
       <div v-else class="img-holder mt-2"></div>
     </div>
@@ -25,7 +25,7 @@
       <div class="label mr-3" style="flex-shrink: 0">
         <span>图片链接:</span>
       </div>
-      <el-input v-model="imageFile.link" placeholder="请输入图片链接"></el-input>
+      <el-input v-model="imageObj.link" placeholder="请输入图片链接"></el-input>
     </div>
 
   </div>
@@ -39,18 +39,16 @@ export default {
   components: {},
   data() {
     return {
-      imageFile: {},
-      notificationImageObj: {},
+      imageObj: {},
     };
   },
   methods: {
     async handleFileChange(file) {
       console.log("file->", file);
-      this.imageFile = file;
       try {
         await validateImage({ imageData: file });
-        this.notificationImageObj = file;
-        // this.imageFile.content = await toBase64(file.raw);
+        this.imageObj = file;
+        // this.imageObj.content = await toBase64(file.raw);
       } catch (err) {
         console.log("err->", err);
         this.errorHandler(err);
