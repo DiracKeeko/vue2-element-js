@@ -208,23 +208,23 @@ const menuConfigArr = [
       },
     ]
   },
-  // {
-  //   "index": "4",
-  //   "title": "showCase",
-  //   "hidden": 0,
-  //   "menuType": "inner",
-  //   "menuId": 3,
-  //   "menuItem": [
-  //     {
-  //       "index": "/showCusTip",
-  //       "title": "showCusTip",
-  //       "hidden": 0,
-  //       "menuType": "inner",
-  //       "menuId": 1,
-  //       "componentPath": "showCase/showCusTip/ShowCusTip.vue"
-  //     }
-  //   ]
-  // }
+  {
+    "index": "5",
+    "title": "demo案例",
+    "hidden": 0,
+    "menuType": "inner",
+    "menuId": 5,
+    "menuItem": [
+      {
+        "index": "/demo01",
+        "title": "demo01",
+        "hidden": 0,
+        "menuType": "inner",
+        "menuId": 1,
+        "componentPath": "showDemo/showDemo01/ShowDemo01.vue"
+      }
+    ]
+  }
 ];
 
 
