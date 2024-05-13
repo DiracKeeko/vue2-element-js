@@ -1,18 +1,26 @@
 <template>
   <div class="show-demo-01 d-flex jc-center">
     <div class="outline border">
-      <div class="top-container d-flex jc-between">
-        <div class="top-item border d-flex jc-center ai-center">
+      <div class="top-container border d-flex jc-center">
+        <div class="card">
+          <div class="top-left text-primary">{{ firstLetter }}</div>
+          <div class="top-right">
+            <div class="text-success">{{ secondLetter }}</div>
+            <div class="text-failed">{{ thirdLetter }}</div>
+          </div>
+        </div>
+      </div>
+      <div class="mid-container mt-5 d-flex jc-between">
+        <div class="mid-item border d-flex jc-center ai-center">
           <div class="text-primary">{{ firstLetter }}</div>
         </div>
-        <div class="top-item border d-flex jc-center ai-center">
+        <div class="mid-item border d-flex jc-center ai-center">
           <div class="text-success">{{ secondLetter }}</div>
         </div>
-        <div class="top-item border d-flex jc-center ai-center">
+        <div class="mid-item border d-flex jc-center ai-center">
           <div class="text-failed">{{ thirdLetter }}</div>
         </div>
       </div>
-      <div></div>
       <div class="footer d-flex">
         <el-button type="primary" @click="handleClick(0)">抽个声母</el-button>
         <el-button type="primary" @click="handleClick(1)">抽个韵母</el-button>
@@ -23,9 +31,42 @@
 </template>
 
 <script>
-const consonantArr = ["b", "p", "m", "f"];
-const vowelArr = ["a", "i", "u", "e", "o"];
-const toneArr = ["ˉ", "ˊ", "ˇ", "ˋ"];
+const consonantArr = [
+  "c",
+  "b",
+  "d",
+  "đ",
+  "h",
+  "l",
+  "k",
+  "t",
+  "n",
+  "m",
+  "v",
+  "r",
+  "s",
+  "x",
+  "p",
+  "ph",
+  "q",
+  "qu",
+  "g",
+  "gh",
+  "ng",
+  "ngh",
+  "ch",
+  "tr",
+  "nh",
+  "th",
+  "gi",
+  "kh"
+];
+
+const withToneVowelArr = ["a", "o", "ô", "ơ", "e", "ê", "i", "y", "u", "ư"]
+const withoutToneVowelArr = ["ă", "â"];
+const vowelArr = [...withToneVowelArr, ...withoutToneVowelArr];
+
+const toneArr = ["-", "ˋ", "ˊ", "?", "~", "·", ];
 
 export default {
   name: "ShowDemo01",
@@ -86,9 +127,13 @@ export default {
     min-height: 500px;
     padding: 20px 25px;
     .top-container {
+      height: 40%;
+      font-size: 55px;
+    }
+    .mid-container {
       width: 100%;
       height: 40%;
-      .top-item {
+      .mid-item {
         width: 30%;
         height: 80%;
         > div {
