@@ -1,12 +1,12 @@
 <template>
   <div class="show-demo-01 d-flex jc-center">
     <div class="outline border">
-      <div class="top-container border d-flex jc-center">
-        <div class="card">
+      <div class="top-container border d-flex jc-center ai-center">
+        <div class="compound-card d-flex jc-center ai-center">
           <div class="top-left text-primary">{{ firstLetter }}</div>
           <div class="top-right">
             <div class="text-success">{{ secondLetter }}</div>
-            <div class="text-failed">{{ thirdLetter }}</div>
+            <div class="tone-box text-failed">{{ thirdLetter }}</div>
           </div>
         </div>
       </div>
@@ -66,7 +66,7 @@ const withToneVowelArr = ["a", "o", "ô", "ơ", "e", "ê", "i", "y", "u", "ư"]
 const withoutToneVowelArr = ["ă", "â"];
 const vowelArr = [...withToneVowelArr, ...withoutToneVowelArr];
 
-const toneArr = ["-", "ˋ", "ˊ", "?", "~", "·", ];
+const toneArr = ["ˉ", "ˋ", "ˊ", "ˀ", "~", "·", ];
 
 export default {
   name: "ShowDemo01",
@@ -104,7 +104,7 @@ export default {
   watch: {},
   methods: {
     handleClick(index) {
-      const arr = [consonantArr, vowelArr, toneArr];
+      const arr = [consonantArr, withToneVowelArr, toneArr];
       const curArr = arr[index];
       const len = curArr.length;
       const newIndex = Math.floor(Math.random() * len);
@@ -129,6 +129,20 @@ export default {
     .top-container {
       height: 40%;
       font-size: 55px;
+      .compound-card {
+        width: 100px;
+        height: 80px;
+        line-height: 80px;
+        .top-right {
+          position: relative;
+          .tone-box {
+            position: absolute;
+            font-size: 44px;
+            top: -20px;
+            left: 5px;
+          }
+        }
+      }
     }
     .mid-container {
       width: 100%;
