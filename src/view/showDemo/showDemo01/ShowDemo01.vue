@@ -5,8 +5,13 @@
         <div class="compound-card d-flex jc-center ai-center">
           <div class="top-left text-primary">{{ firstLetter }}</div>
           <div class="top-right">
-            <div class="text-success">{{ secondLetter }}</div>
-            <div class="tone-box text-failed">{{ thirdLetter }}</div>
+            <div class="top-right-sec text-success">{{ secondLetter }}</div>
+            <div
+              class="tone-box text-failed"
+              :class="{ 'tone-box-question': thirdIndex === 3, 'tone-box-down': thirdIndex === 5 }"
+            >
+              {{ thirdLetter }}
+            </div>
           </div>
         </div>
       </div>
@@ -21,52 +26,17 @@
           <div class="text-failed">{{ thirdLetter }}</div>
         </div>
       </div>
-      <div class="footer d-flex">
-        <el-button type="primary" @click="handleClick(0)">抽个声母</el-button>
-        <el-button type="primary" @click="handleClick(1)">抽个韵母</el-button>
-        <el-button type="primary" @click="handleClick(2)">抽个声调</el-button>
+      <div class="footer d-flex jc-between">
+        <el-button type="primary" style="width: 30%" @click="handleClick(0)">抽个声母</el-button>
+        <el-button type="primary" style="width: 30%" @click="handleClick(1)">抽个韵母</el-button>
+        <el-button type="primary" style="width: 30%" @click="handleClick(2)">抽个声调</el-button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-const consonantArr = [
-  "c",
-  "b",
-  "d",
-  "đ",
-  "h",
-  "l",
-  "k",
-  "t",
-  "n",
-  "m",
-  "v",
-  "r",
-  "s",
-  "x",
-  "p",
-  "ph",
-  "q",
-  "qu",
-  "g",
-  "gh",
-  "ng",
-  "ngh",
-  "ch",
-  "tr",
-  "nh",
-  "th",
-  "gi",
-  "kh"
-];
-
-const withToneVowelArr = ["a", "o", "ô", "ơ", "e", "ê", "i", "y", "u", "ư"]
-const withoutToneVowelArr = ["ă", "â"];
-const vowelArr = [...withToneVowelArr, ...withoutToneVowelArr];
-
-const toneArr = ["ˉ", "ˋ", "ˊ", "ˀ", "~", "·", ];
+import { consonantArr, withToneVowelArr, toneArr } from "./constant.js";
 
 export default {
   name: "ShowDemo01",
@@ -91,7 +61,7 @@ export default {
       if (secondIndex === undefined) {
         return "";
       }
-      return vowelArr[secondIndex];
+      return withToneVowelArr[secondIndex];
     },
     thirdLetter() {
       const { thirdIndex } = this;
@@ -135,11 +105,23 @@ export default {
         line-height: 80px;
         .top-right {
           position: relative;
+          .top-right-sec {
+            width: 30px;
+            text-align: center;
+          }
           .tone-box {
             position: absolute;
             font-size: 44px;
-            top: -20px;
-            left: 5px;
+            top: -10px;
+            left: 8px;
+          }
+          .tone-box-question {
+            font-size: 28px;
+            top: -16px;
+            left: 10px;
+          }
+          .tone-box-down {
+            top: 16px;
           }
         }
       }
