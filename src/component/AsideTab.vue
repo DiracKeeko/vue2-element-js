@@ -40,17 +40,48 @@ export default {
     curSelectKey: {
       type: String,
       default: ""
+    },
+    autoplay: {
+      type: Boolean,
+      default: false
+    },
+    timeInterval: {
+      type: Number,
+      default: 5 // 单位秒
     }
   },
   data() {
-    return {};
+    return {
+      timer: null
+    };
   },
-  computed: {},
-  watch: {},
+  mounted() {
+    this.autoplay && this.startTimer();
+    this.$once("hook:beforeDestroy", () => {
+      clearInterval(this.timer);
+    })
+  },
   methods: {
     throttleMethod: throttle(function (key) {
       this.$emit("tabChange", key);
-    }, 500)
+      this.autoplay && this.resetTimer();
+    }, 500),
+    startTimer() {
+      this.timer = setInterval(() => {
+        this.moveToNextKey();
+      }, this.timeInterval * 1000);
+    },
+    moveToNextKey() {
+      const { curSelectKey, tabKeyList } = this;
+      const currentIndex = tabKeyList.indexOf(curSelectKey);
+      const nextIndex = (currentIndex + 1) % tabKeyList.length;
+      const nextKey = tabKeyList[nextIndex];
+      this.$emit("tabChange", nextKey);
+    },
+    resetTimer() {
+      clearInterval(this.timer);
+      this.startTimer();
+    }
   }
 };
 </script>
