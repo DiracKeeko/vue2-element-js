@@ -31,6 +31,10 @@
         <el-button type="primary" style="width: 30%" @click="handleClick(1)">抽个韵母</el-button>
         <el-button type="primary" style="width: 30%" @click="handleClick(2)">抽个声调</el-button>
       </div>
+      <div class="footer-down d-flex jc-around mt-2">
+        <el-button type="primary" style="width: 30%" @click="handleClickList([0, 1])">声母韵母</el-button>
+        <el-button type="primary" style="width: 30%" @click="handleClickList([0, 1, 2])">一键三连</el-button>
+      </div>
     </div>
   </div>
 </template>
@@ -83,6 +87,12 @@ export default {
       const indexKey = indexArr[index];
 
       this[indexKey] = newIndex;
+    },
+    handleClickList(arr) {
+      const { handleClick } = this;
+      arr.forEach(index => {
+        handleClick(index);
+      })
     }
   }
 };
