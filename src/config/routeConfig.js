@@ -90,7 +90,15 @@ const menuConfigArr = [
         "hidden": 0,
         "menuType": "inner",
         "menuId": 1,
-        "componentPath": "TestJsonFormat.vue"
+        "componentPath": "testCase/TestJsonFormat.vue"
+      },
+      {
+        "index": "/eslintCase",
+        "title": "eslintCase",
+        "hidden": 0,
+        "menuType": "inner",
+        "menuId": 1,
+        "componentPath": "testCase/EslintCase.vue"
       }
     ]
   },
