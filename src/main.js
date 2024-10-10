@@ -17,6 +17,7 @@ import "./plugin/vxeTable.js";
 import "./config/routeConfig";
 
 import "./scss/theme.scss";
+import 'katex/dist/katex.min.css';
 
 Vue.mixin(globalMixin);
 Vue.use(globalComponent);
