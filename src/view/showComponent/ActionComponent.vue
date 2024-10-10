@@ -36,6 +36,16 @@
         class="mt-5"
       ></UnderscoreSwitch>
 
+      <div class="mt-5">
+        <div class="fs-lg fw-bold mb-2">KatexElement</div>
+        <div>
+          <KatexElement expression="w_{i, t}" />
+        </div>
+        <div>
+          <KatexElement expression="S_{i, t}=\sum_{j=1}^{n} S_{j, t}"></KatexElement>
+        </div>
+      </div>
+
       <div class="d-flex mt-5">
         <div class="action-component-example">
           <StockBondCostPerformance></StockBondCostPerformance>
@@ -60,7 +70,6 @@
           <el-input v-model="input1" placeholder="默认" maxlength="10" show-word-limit></el-input>
         </InputWrapper>
       </div>
-
     </div>
   </div>
 </template>

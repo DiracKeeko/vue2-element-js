@@ -1,5 +1,5 @@
 <template>
-  <component :is="displayMode ? 'div' : 'span'" v-html="math"></component>
+  <component :is="displayMode ? 'div' : 'span'" v-html="mathematicalExpressions"></component>
 </template>
 
 <script>
@@ -62,7 +62,7 @@ export default {
     }
   },
   computed: {
-    // 合并自定义的 KaTeX 选项
+    // 生成最终的options
     options() {
       return removeUndefined({
         displayMode: this.displayMode,
@@ -76,8 +76,8 @@ export default {
         strict: this.strict
       });
     },
-    // 生成的数学表达式
-    math() {
+    // 生成数学表达式
+    mathematicalExpressions() {
       return katex.renderToString(this.expression, this.options);
     }
   }
