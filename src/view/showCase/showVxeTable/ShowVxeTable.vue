@@ -20,8 +20,12 @@
       <vxe-grid
         :show-overflow="true"
         :height="200"
-        :rowConfig="{ height: 56, isHover: false }"
-        :columns="tableCols"
+        :header-cell-style="{
+          height: '40px',
+          padding: '11px 0 12px'
+        }"
+        :row-config="{ height: 56, isHover: false }"
+        :columns="tableCols.map(item => ({ ...item, width: 120}))"
         :data="tableData"
       >
       </vxe-grid>
