@@ -16,6 +16,15 @@
       <div class="mt-5">:show-overflow="true"</div>
       <vxe-grid :show-overflow="true" :height="200" :columns="tableCols" :data="tableData">
       </vxe-grid>
+
+      <vxe-grid
+        :show-overflow="true"
+        :height="200"
+        :rowConfig="{ height: 56, isHover: false }"
+        :columns="tableCols"
+        :data="tableData"
+      >
+      </vxe-grid>
     </div>
   </div>
 </template>
@@ -142,7 +151,6 @@ export default {
 
 #height-case {
   ::v-deep {
-
     // ## 注意 overflow开启 与 不开启  设置表格高度的样式是不一样的
 
     // ↓ 设置了 :show-overflow="false" 且沒有省略发生时生效
