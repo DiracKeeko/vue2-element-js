@@ -18,16 +18,6 @@ const config = {
       })
       .end();
   },
-  // chainWebpack: conf => {
-  //   conf.resolve.alias.set("@", resolve("src"));
-  // },
-  // configureWebpack: {
-  //   resolve: {
-  //     alias: {
-  //       '@': resolve('src')
-  //     }
-  //   }
-  // },
   lintOnSave: false,
   devServer: {
     port: 6060,
