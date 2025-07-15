@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "rsbuild dev",
     "start": "rsbuild dev --open",
-    "build": "vue-cli-service build",
+    "build": "rsbuild build",
+    "format": "prettier --write .",
     "lint": "eslint \"src/**/*.{js,vue,html}\"",
     "lint:fix": "eslint \"src/**/*.{js,vue,html}\" --fix",
     "precommit": "lint-staged"
@@ -36,8 +37,7 @@
     "eslint-plugin-vue": "^6.2.2",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.3",
-    "sass": "^1.33.0",
-    "svg-sprite-loader": "^6.0.7"
+    "sass": "^1.33.0"
   },
   "husky": {
     "hooks": {
