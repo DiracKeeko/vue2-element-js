@@ -1,9 +1,11 @@
+@use "sass:string";
+
 // ↓ $colors中的变量会在theme.scss中生成css变量 (用 var(--key)来使用)
 $colors: (
   "primary": #1b5fc5,
   "success": #00bf30,
   "failed": #e64141,
-  "balck": #000000,
+  "black": #000000,
   "dark": #333333,
   "dark-grey": #666666,
   "grey": #999999,
@@ -15,7 +17,7 @@ $colors: (
 
 :export {
   @each $key, $val in $colors {
-    #{unquote($key)}: $val;
+    #{string.unquote($key)}: $val;
   }
 }
 
