@@ -8,12 +8,17 @@ export default defineConfig({
     pluginVue2(),
     pluginSvgr({
       svgrOptions: {
-        // 如果需要将 SVG 作为 Vue 组件使用，请设置为 true
+        // 如果需要将 SVG 作为 Vue 组件使用，设置为 true
         vue: true
       }
     }),
     pluginSass()
   ],
+  source: {
+    entry: {
+      index: './src/main.js' // 指定入口文件
+    }
+  },
   html: {
     template: './public/index.html',
     title: 'rs vue app'
@@ -27,7 +32,6 @@ export default defineConfig({
     }
   },
   server: {
-    // 对应 devServer.port
     port: 6060
   }
 });
