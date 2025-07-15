@@ -14,13 +14,17 @@ export default defineConfig({
     }),
     pluginSass()
   ],
+  html: {
+    template: './public/index.html',
+    title: 'rs vue app'
+  },
+  output: {
+    assetPrefix: '/',
+  },
   resolve: {
     alias: {
       "@": "./src"
     }
-  },
-  source: {
-    entry: "./src/main.js"
   },
   server: {
     // 对应 devServer.port
